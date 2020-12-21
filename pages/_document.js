@@ -5,11 +5,11 @@ class MyDocument extends Document {
         const initialProps = await Document.getInitialProps(ctx)
         // locale is in ctx.locale
 
-        return {...initialProps, locale: 'fa'}
+        return { ...initialProps, locale: 'fa' }
     }
    
     render = () => (
-        <Html dir={this.props.locale === 'fa' ? 'rtl': 'ltr'} >
+        <Html dir={this.props.locale === 'fa' ? 'rtl': 'ltr'} lang='en' >
             <Head>
                 <link
                     rel="preload"
