@@ -9,7 +9,7 @@ class MyDocument extends Document {
     }
    
     render = () => (
-        <Html dir={this.props.locale === 'fa' ? 'rtl': 'ltr'} lang={this.props.locale}>
+        <Html dir={this.props.locale === 'fa' ? 'rtl': 'ltr'} >
             <Head>
                 <link
                     rel="preload"
@@ -17,7 +17,7 @@ class MyDocument extends Document {
                     as="font"
                     crossOrigin=""
                 />
-                
+
                 <link
                     rel="preload"
                     href="/fonts/IRANSans/IRANSansWeb_Medium.ttf"
