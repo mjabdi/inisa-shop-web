@@ -5,7 +5,7 @@ class MyDocument extends Document {
         const initialProps = await Document.getInitialProps(ctx)
         // locale is in ctx.locale
 
-        return { ...initialProps, locale: 'fa' }
+        return {...initialProps, locale: 'fa'}
     }
    
     render = () => (
