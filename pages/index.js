@@ -11,9 +11,16 @@ export default function Home() {
 
       <main className={styles.main}>
 
-      <h1 className={styles.title}>
-        به اینیسا شاپ خوش آمدید
-      </h1>
+
+
+
+
+      <div style={{margin:"20px"}}>
+        <h1 className={styles.title}>
+          به اینیسا شاپ خوش آمدید
+        </h1>
+
+      </div>
 
 
         <h1 className={styles.title}>
