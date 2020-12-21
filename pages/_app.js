@@ -1,5 +1,7 @@
 import '../styles/globals.css'
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { appWithTranslation } from '../i18n'
+import App from 'next/app'
 
 const theme = createMuiTheme({
   palette: {
@@ -27,7 +29,7 @@ const theme = createMuiTheme({
 
 
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
        <Component {...pageProps} />
@@ -35,4 +37,6 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+MyApp.getInitialProps = async (appContext) => ({ ...await App.getInitialProps(appContext) })
+
+export default appWithTranslation(MyApp)

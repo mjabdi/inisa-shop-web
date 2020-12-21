@@ -1,17 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import AppBar from '../components/home/app-bar'
+import { i18n, Link, withTranslation } from '../i18n'
+import PropTypes from 'prop-types'
 
-export default function Home() {
+const Home = ({t}) => {
   return (
 
     <div className={styles.container}>
       <Head>
-        <title>InisaShop</title>
+        <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppBar/>
+      <AppBar t={t}/>
 
       <main className={styles.main}>
 
@@ -30,3 +32,14 @@ export default function Home() {
     </div>
   )
 }
+
+
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+Home.propTypes = {
+  t: PropTypes.func.isRequired,
+}
+
+export default withTranslation('common')(Home)
