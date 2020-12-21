@@ -5,12 +5,12 @@ const Custom404 = ({t}) => {
     return <h1 style={{padding:"20px"}}> {t('pageNotFound')} </h1>
   }
 
-  Home.getInitialProps = async () => ({
+  Custom404.getInitialProps = async () => ({
     namespacesRequired: ['common'],
   })
   
-  Home.propTypes = {
+  Custom404.propTypes = {
     t: PropTypes.func.isRequired,
   }
   
-  export default withTranslation('common')(Home)
+  export default withTranslation('common')(Custom404)
