@@ -1,35 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import AppBar from '../components/home/app-bar'
 
 export default function Home() {
   return (
+
     <div className={styles.container}>
       <Head>
         <title>InisaShop</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <AppBar/>
+
       <main className={styles.main}>
-
-
-
-
-
-      <div style={{margin:"20px"}}>
-        <h1 className={styles.title}>
-          به اینیسا شاپ خوش آمدید
-        </h1>
-
-      </div>
-
-
-        <h1 className={styles.title}>
-          Welcome to <a href="#">Inisa Shop</a>
-        </h1>
-
-        <p className={styles.description}>
-          Website will be launched soon ...      
-        </p>
 
       </main>
 
