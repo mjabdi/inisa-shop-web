@@ -15,7 +15,7 @@ export default function Home() {
 
 
 
-      <div style={{margin:"20px"}}>
+      <div style={{margin:"20px", color: 'red'}}>
         <h1 className={styles.title}>
           به اینیسا شاپ خوش آمدید
         </h1>
