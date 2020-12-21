@@ -3,8 +3,14 @@ import styles from '../styles/Home.module.css'
 import AppBar from '../components/home/app-bar'
 import { i18n, Link, withTranslation } from '../i18n'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const Home = ({t}) => {
+
+  React.useEffect(() => {
+    i18n.changeLanguage('fa');
+  },[]);
+
   return (
 
     <div className={styles.container}>
