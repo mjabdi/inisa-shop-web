@@ -4,6 +4,13 @@ import { appWithTranslation } from '../i18n'
 import App from 'next/app'
 
 const theme = createMuiTheme({
+
+  typography: {
+    fontFamily: [
+      'IRANSans'
+    ].join(','),
+  },
+
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
