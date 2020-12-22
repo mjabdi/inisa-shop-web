@@ -23,7 +23,7 @@
 .section2{
   display: flex !important;
   height:600px;
-  width: 100%;
+  width: 100vw;
   flex-direction: row !important;
   justify-content: space-between !important;
 }

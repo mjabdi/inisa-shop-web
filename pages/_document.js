@@ -40,7 +40,7 @@ class MyDocument extends Document {
                 />
 
             </Head>    
-            <body>
+            <body style={{overflowX: "hidden"}}>
                 <Main />
                 <NextScript />
             </body>

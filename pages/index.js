@@ -59,9 +59,9 @@ const Home = ({t}) => {
         <section id = "section2" className={styles.section2}>
 
         </section>
-        <section id= "section3" className={styles.section3}>
+        {/* <section id= "section3" className={styles.section3}>
 
-        </section>        
+        </section>         */}
       </main>
 
       <footer className={styles.footer}>
