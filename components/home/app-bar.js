@@ -35,11 +35,11 @@ function ChangeOnScroll(props) {
 
             ) :
             (
-              <Slide direction="down" timeout={900} in={true} mountOnEnter unmountOnExit>
+              <Slide direction="down" timeout={1000} in={true} mountOnEnter unmountOnExit>
               {
                 React.cloneElement(children, {
-                  elevation: 1,
-                  style: {opacity: 0.9, backgroundColor: "#fff"}
+                  // elevation: 4,
+                  style: {opacity: 0.8, backgroundColor: "#fefefe", border: 0, boxShadow: "0 8px 20px 0 rgba(0, 0, 0, 0.1)"}
                 })
                
                 }
