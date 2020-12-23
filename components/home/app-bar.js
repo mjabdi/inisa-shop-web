@@ -39,7 +39,7 @@ function ChangeOnScroll(props) {
               {
                 React.cloneElement(children, {
                   // elevation: 4,
-                  style: {opacity: 0.8, backgroundColor: "#fefefe", border: 0, boxShadow: "0 8px 20px 0 rgba(0, 0, 0, 0.1)"}
+                  style: {opacity: 0.95, backgroundColor: "#fefefe", border: 0, boxShadow: "0 8px 20px 0 rgba(0, 0, 0, 0.1)"}
                 })
                
                 }
