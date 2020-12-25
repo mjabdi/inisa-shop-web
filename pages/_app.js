@@ -2,8 +2,16 @@ import '../styles/globals.css'
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { appWithTranslation } from '../i18n'
 import App from 'next/app'
+import { create } from 'jss'
+import rtl from 'jss-rtl'
+import { StylesProvider, jssPreset } from '@material-ui/core/styles'
+
+// Configure JSS
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] })
 
 const theme = createMuiTheme({
+
+  direction: 'rtl',
 
   typography: {
     fontFamily: [
@@ -39,7 +47,9 @@ const theme = createMuiTheme({
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-       <Component {...pageProps} />
+      <StylesProvider jss={jss}>
+           <Component {...pageProps} />
+      </StylesProvider>     
     </ThemeProvider>
   )
 }

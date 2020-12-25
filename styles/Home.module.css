@@ -61,14 +61,15 @@
 }
 .box1{
   color:#e20808;
-  width: 400px;
-  height: 300px;
-  transform: rotate(20deg);
-  padding-top: 170px;
+  /* width: 400px;
+  height: 300px; */
+  transform: rotate(20deg); 
+  /* padding-top: 170px; */
 }
 
 
 .main {
+  min-height: 100vh;
   padding:  0;
   flex: 1;
   display: flex;
