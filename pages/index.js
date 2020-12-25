@@ -9,6 +9,7 @@ import { useSpring, animated } from 'react-spring'
 import { Typography } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import FacilityCard from '../components/home/facility-card'
+import SectionCard from '../components/home/section-card'
 
 
 const facilityCards = [
@@ -18,6 +19,16 @@ const facilityCards = [
   { name: 'خرید آنلاین', desc: 'خرید خود را با پرداخت آنلاین با اطمینان و پشتوانه این سایت انجام دهید.' },
 
 ]
+
+const sectionCards = [
+  { name: 'فروشنده',img:"/images/sellersec.jpg", desc: 'تمامی محصولات ارائه شده در صفحه اینستاگرام خود را با ثبت نام در بخش فروشندگان قابل ارائه برای فروش آنلاین درآورید' },
+  { name: 'خریدار',img:"/images/buyersec.jpg", desc: 'محصولات مورد نظر خود را از صفحه دلخواه خود در اینستاگرام به راحتی با ثبت نام در این سایت به صورت آنلاین خریداری نمایید' },
+  { name: 'بلاگ',img:"/images/blogsec.jpg", desc: 'در این بخش مطالبی جذاب و آموزنده در خصوص مد، استایل، ترکیب بندی لباس، دکور، طراحی داخلی، و هر آنچه برای یک زندگی شیرین مورد نیاز است ارائه می گردد.'},
+  { name: 'رویداد',img:"/images/eventsec.jpg", desc: 'رویدادهای مهم سال، جشن ها، سال نو، حراج ها، را به بهترین نحو برگزار می کنیم' },
+  { name: 'برندینگ',img:"/images/brandsec.jpg", desc: 'با ما محصولات خود را برند کنید، و یا برند دلخواه خود را ایجاد کنید'},
+  { name: 'ارتباط با ما',img:"/images/contactsec.jpg", desc: 'با ما همراه باشید، پیسنهادات و انتقادات شما راهیست به سوی موفقیت ' },
+]
+
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2 - 50]
 const trans1 = (x, y) => `translate3d(${x / 5}px,${y / 5}px,0)`
@@ -82,7 +93,7 @@ const Home = ({ t }) => {
 
 
         <section id="section1" className={styles.section1}>
-
+          
 
           <div style={{ marginTop: "100px", width: "100vw" }}>
 
@@ -92,9 +103,9 @@ const Home = ({ t }) => {
               justify="center"
               alignItems="stretch"
             >
-              <Grid item xs={12} md={6}>
-                <div style={{ minHeight: "500px", position: "relative" }}>
-                  <div style={{ fontSize: "24px", position: "absolute", top: "28%", right: "100px" }}>
+              <Grid item xs={12} md={3}>
+              <div style={{ minHeight: "500px", position: "relative" }}>
+                  <div style={{ fontSize: "24px", position: "absolute", top: "28%", right: "0px" }}>
                     <div style={{ fontSize: "50px", fontWeight: "bolder" }}>
                       <span>
                         {t('inisa')}
@@ -110,13 +121,14 @@ const Home = ({ t }) => {
 
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={4} >
+
                 <div style={{ minHeight: "500px", position: "relative" }}>
                   <div className={styles.box1} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
                     {props.xy && (
                       <animated.div style={{ transform: props.xy.interpolate(trans1) }} >
                         <Image
-                          src="/images.jpg"
+                          src="/images/feets.jpg"
                           width={500}
                           height={300}
                         />
@@ -125,8 +137,27 @@ const Home = ({ t }) => {
 
                   </div>
                 </div>
-
+                
               </Grid>
+              <Grid item xs={12} md={4} >
+
+                <div style={{ minHeight: "500px", position: "relative" }}>
+                  <div className={styles.box1} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+                    {props.xy && (
+                      <animated.div style={{ transform: props.xy.interpolate(trans1) }} >
+                        <Image
+                          src="/images/2girls.jpg"
+                          width={220}
+                          height={290}
+                        />
+                      </animated.div>
+                    )}
+
+                  </div>
+                </div>
+
+                </Grid>
+
 
             </Grid>
 
@@ -145,9 +176,19 @@ const Home = ({ t }) => {
             </Grid>
           </div>
 
-          <div id="wcbg" className={styles.wcbg} style={{backgroundPositionX : bgX}}>
-
+          <div  id="wcbg" className={styles.wcbg} style={{backgroundPositionX : bgX,  color:"pink"}}>
+            <span>
+              <font style={{fontSize:"200px"}}>0</font>
+              <sup>فروشگاه</sup>
+            </span>
           </div>
+          <div className={styles.content}>
+            فروشگاهی برای خرید و فروش های اینستاگرام
+          </div>
+          <div className={styles.content1}>
+            فروشندگان محترم می توانند با استفاده از پنل فروشنده و وارد کردن نام صفحه خود در اینستاگرام می توانند به راحتی محصولات خود را برای فروش ارائه نمایند، و خریداران محترم می توانند با استفاده از پنل خریدار و ثبت نام در سایت از صفحه مورد نظر خود در اینستاگرام به راحتی خرید خود را انجام دهند.
+          </div>
+          
 
 
           {/* <div onClick={() => toggle(!open)}>
@@ -168,9 +209,18 @@ const Home = ({ t }) => {
           </div> */}
 
         </section>
-        {/* <section id= "section3" className={styles.section3}>
+        <section id= "section3" className={styles.section3}>
+        <div style={{width:"98vw", marginTop:"30px"}}>
+            <Grid container direction="row" spacing={2}>
+                {sectionCards.map(element => (
+                  <Grid key={element.name} item xs={12} md={4}>
+                    <SectionCard title={element.name} description={element.desc} image={element.img} />
+                  </Grid>
+                ))}
+            </Grid>
+          </div>
 
-        </section>         */}
+        </section>        
       </main>
 
       <footer className={styles.footer}>

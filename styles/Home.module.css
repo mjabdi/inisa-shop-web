@@ -10,7 +10,7 @@
 .section1{
   background-color: #fafafa;
   /* display: flex !important; */
-  height: 1000px;
+  height: 700px;
   width: 100vw;
   /* flex-direction: row !important;
   justify-content: space-between !important; */
@@ -22,10 +22,19 @@
 }
 .section2{
   
-  height: 1500px;
+  height: 750px;
   width: 100vw;
   flex-direction: row !important;
   justify-content: space-between !important;
+  
+}
+.section3{
+  
+  height: 900px;
+  width: 100vw;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+
   
 }
 .wcbg {
@@ -34,8 +43,22 @@
   background-position: center;
   width: 100vw;
   height: 300px;
+  /* background-color: #0070f3 */
+  text-align: center;
 }
-
+.content{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6b2694;
+}
+.content1{
+  text-align: center;
+  font-weight:lighter ;
+  color: #4f4753;
+  width:80vw;
+  margin-right: 100px;
+}
 .box1{
   color:#e20808;
   width: 400px;
