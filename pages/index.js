@@ -24,9 +24,9 @@ const sectionCards = [
   { name: 'فروشنده',img:"/images/sellersec.jpg", desc: 'تمامی محصولات ارائه شده در صفحه اینستاگرام خود را با ثبت نام در بخش فروشندگان قابل ارائه برای فروش آنلاین درآورید' },
   { name: 'خریدار',img:"/images/buyersec.jpg", desc: 'محصولات مورد نظر خود را از صفحه دلخواه خود در اینستاگرام به راحتی با ثبت نام در این سایت به صورت آنلاین خریداری نمایید' },
   { name: 'بلاگ',img:"/images/blogsec.jpg", desc: 'در این بخش مطالبی جذاب و آموزنده در خصوص مد، استایل، ترکیب بندی لباس، دکور، طراحی داخلی، و هر آنچه برای یک زندگی شیرین مورد نیاز است ارائه می گردد.'},
-  { name: 'رویداد',img:"/images/eventsec.jpg", desc: 'رویدادهای مهم سال، جشن ها، سال نو، حراج ها، را به بهترین نحو برگزار می کنیم' },
+  { name: 'رویدادها',img:"/images/eventsec.jpg", desc: 'رویدادهای مهم سال، جشن ها، سال نو، حراج ها، را به بهترین نحو برگزار می کنیم' },
   { name: 'برندینگ',img:"/images/brandsec.jpg", desc: 'با ما محصولات خود را برند کنید، و یا برند دلخواه خود را ایجاد کنید'},
-  { name: 'ارتباط با ما',img:"/images/contactsec.jpg", desc: 'با ما همراه باشید، پیسنهادات و انتقادات شما راهیست به سوی موفقیت ' },
+  { name: 'ارتباط با ما',img:"/images/contactsec.jpg", desc: 'با ما همراه باشید، پیشنهادات و انتقادات شما راهیست به سوی موفقیت ' },
 ]
 
 
@@ -116,9 +116,14 @@ const Home = ({ t }) => {
               </Grid>
 
               <Grid item xs={12} md={6} >
-
-                <div >
-                  <div className={styles.box1} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+                <div className={styles.firstsec}>
+                 <Image
+                          src="/images/feets.jpg"
+                          width={500}
+                          height={300}
+                        />
+                        </div>
+                  {/* <div  onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
                     {props.xy && (
                    
                       <animated.div style={{ transform: props.xy.interpolate(trans1) }} >
@@ -130,8 +135,7 @@ const Home = ({ t }) => {
                       </animated.div>
                     )}
 
-                  </div>
-                </div>
+                  </div> */}
                 
               </Grid>
 
@@ -157,7 +161,8 @@ const Home = ({ t }) => {
         </section>
 
 
-        {/* <section id="section2" className={styles.section2}>
+        <section id="section2" className={styles.section2}>
+          <div>
           <div style={{width:"98vw", marginTop:"30px"}}>
             <Grid container direction="row" spacing={2}>
                 {facilityCards.map(element => (
@@ -180,8 +185,11 @@ const Home = ({ t }) => {
           <div className={styles.content1}>
             فروشندگان محترم می توانند با استفاده از پنل فروشنده و وارد کردن نام صفحه خود در اینستاگرام می توانند به راحتی محصولات خود را برای فروش ارائه نمایند، و خریداران محترم می توانند با استفاده از پنل خریدار و ثبت نام در سایت از صفحه مورد نظر خود در اینستاگرام به راحتی خرید خود را انجام دهند.
           </div>
-          
+          </div>
         </section>
+
+
+        
         <section id= "section3" className={styles.section3}>
         <div style={{width:"98vw", marginTop:"30px"}}>
             <Grid container direction="row" spacing={2}>
@@ -192,9 +200,130 @@ const Home = ({ t }) => {
                 ))}
             </Grid>
           </div>
-        </section>     */}
+        </section>    
+      
+        <section id= "section4" className={styles.section4}>
+          <Grid container direction="row" spacing={3}>
+            <Grid item xs={12} md={6}>
+            <div className={styles.texttitle} style={{fontSize:"36px" }}>
+            فروش آنلاین اینستاگرام
+          </div>
+            <div className={styles.textdesc} style={{fontSize:"18px" }}>
+            این سایت فروش را برای فروشگاه های اینستاگرام  به صورت آنلاین امکان پذیر نموده است
+          </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className={styles.leftImages} >
+                  <Image
+                          src="/images/onlineshop.jpg"
+                          width={300}
+                          height={300}
+                        />
 
+              </div>
+            </Grid>            
+          </Grid>
+        </section> 
+        <section id= "section5" className={styles.section5}>
+          <Grid container direction="row" spacing={3}>
+          <Grid item xs={12} md={6}>
+              <div className={styles.rightImages} >
+                  <Image
+                          src="/images/onlineshop2.png"
+                          width={300}
+                          height={300}
+                        />
 
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+            <div className={styles.texttitleright} style={{fontSize:"36px" }}>
+            خرید آنلاین از اینستاگرام
+          </div>
+            <div className={styles.textdescright} style={{fontSize:"18px" }}>
+            خرید از فروشگاه های اینترنتی را بصورت آنلاین و فقط با چند کلیک در این سایت انجام دهید
+          </div>
+            </Grid>           
+          </Grid>
+        </section>
+        <section id= "section6" className={styles.section4}>
+          <Grid container direction="row" spacing={3}>
+            <Grid item xs={12} md={6}>
+            <div className={styles.texttitle} style={{fontSize:"36px" }}>
+            جستجو بر اساس محصول یا فروشنده
+          </div>
+            <div className={styles.textdesc} style={{fontSize:"18px" }}>
+             خریداران محترم به راحتی می توانند محصول مورد نظر را با مشخصات دلخواه جستجو نمایند و علاوه بر آن امکان جستجوی محصول بر اساس فروشنده مورد نظر و همچنین تمامی هشتگ های اینستاگرام  نیز فراهم می باشد.
+          </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className={styles.leftImages} >
+                  <Image
+                          src="/images/onlineshop1.jpg"
+                          width={300}
+                          height={300}
+                        />
+
+              </div>
+            </Grid>            
+          </Grid>
+        </section>
+        <section id= "section7" className={styles.section5}>
+          <Grid container direction="row" spacing={3}>
+          <Grid item xs={12} md={6}>
+              <div className={styles.rightImages} >
+                  <Image
+                          src="/images/moreview.png"
+                          width={300}
+                          height={300}
+                        />
+
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+            <div className={styles.texttitleright} style={{fontSize:"36px" }}>
+            افزایش بازدید و رشد فروش
+          </div>
+            <div className={styles.textdescright} style={{fontSize:"18px" }}>
+            با اتصال فروشگاه اینستاگرامی خود به این سایت نرخ بازدید در جستجوهای آنلاین برای محصولات خود را افزایش داده و در نتیجه شاهد فروش بیشتری باشید
+          </div>
+            </Grid>           
+          </Grid>
+        </section>
+        <section id= "section8" className={styles.section4}>
+          <Grid container direction="row" spacing={3}>
+            <Grid item xs={12} md={6}>
+            <div className={styles.texttitleseo} style={{fontSize:"36px" }}>
+            سئو
+          </div>
+            <div className={styles.textdescseo} style={{fontSize:"18px" }}>
+          این سایت با پیاده سازی فرآیندهای سئو اهداف زیر را پوشش داده و با به روز رسانی بهترین الگوها و الگوریتم های سئو، همواره در جهت پیشبرد هر چه بیشتر این اهداف کوشا می باشد:
+          <div>افزایش بازدید سایت
+          </div><div>
+          ایجاد برند و شناخت آن به کاربران جدید
+          </div><div>
+          افزایش ترافیک سایت
+          </div><div>
+          افزایش تعامل کاربران با سایت
+          </div><div>
+          افزایش فروش محصولات
+          </div><div>
+          رتبه برتر در موتورهای جستجو 
+          </div>
+          </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className={styles.leftImages} >
+                  <Image
+                          src="/images/seo.png"
+                          width={300}
+                          height={300}
+                        />
+
+              </div>
+            </Grid>            
+          </Grid>
+        </section>
       </main>
 
       <footer className={styles.footer}>

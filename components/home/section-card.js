@@ -25,12 +25,15 @@ console.log(props.image)
         //   title="Contemplative Reptile"
         />
         <CardContent>
+        
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
           </Typography>
+          <div className={styles.carddescription}>
           <Typography variant="body2" color="textSecondary" component="p">
             {props.description}
           </Typography>
+          </div>
         </CardContent>
       </CardActionArea>
       <CardActions>
