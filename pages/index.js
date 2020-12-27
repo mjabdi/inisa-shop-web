@@ -87,7 +87,13 @@ const Home = ({ t }) => {
 
         <AppBar t={t} />
 
-
+        <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="flex-start"
+            >
+              <Grid item xs={12} md={12}>
         <section id="section1" className={styles.section1}>
           <div style={{  width: "100vw" , padding:"50px"}}>
 
@@ -160,7 +166,8 @@ const Home = ({ t }) => {
           </div>
         </section>
 
-
+</Grid>
+<Grid item xs={12} md={12}>
         <section id="section2" className={styles.section2}>
           <div>
           <div style={{width:"98vw", marginTop:"30px"}}>
@@ -188,7 +195,8 @@ const Home = ({ t }) => {
           </div>
         </section>
 
-
+        </Grid>
+<Grid item xs={12} md={12}>
         
         <section id= "section3" className={styles.section3}>
         <div style={{width:"98vw", marginTop:"30px"}}>
@@ -201,7 +209,8 @@ const Home = ({ t }) => {
             </Grid>
           </div>
         </section>    
-      
+        </Grid>
+<Grid item xs={12} md={12}>
         <section id= "section4" className={styles.section4}>
           <Grid container direction="row" spacing={3}>
             <Grid item xs={12} md={6}>
@@ -224,6 +233,8 @@ const Home = ({ t }) => {
             </Grid>            
           </Grid>
         </section> 
+        </Grid>
+<Grid item xs={12} md={12}>
         <section id= "section5" className={styles.section5}>
           <Grid container direction="row" spacing={3}>
           <Grid item xs={12} md={6}>
@@ -246,6 +257,8 @@ const Home = ({ t }) => {
             </Grid>           
           </Grid>
         </section>
+        </Grid>
+<Grid item xs={12} md={12}>
         <section id= "section6" className={styles.section4}>
           <Grid container direction="row" spacing={3}>
             <Grid item xs={12} md={6}>
@@ -268,6 +281,8 @@ const Home = ({ t }) => {
             </Grid>            
           </Grid>
         </section>
+        </Grid>
+<Grid item xs={12} md={12}>
         <section id= "section7" className={styles.section5}>
           <Grid container direction="row" spacing={3}>
           <Grid item xs={12} md={6}>
@@ -290,6 +305,8 @@ const Home = ({ t }) => {
             </Grid>           
           </Grid>
         </section>
+        </Grid>
+<Grid item xs={12} md={12}>
         <section id= "section8" className={styles.section4}>
           <Grid container direction="row" spacing={3}>
             <Grid item xs={12} md={6}>
@@ -324,6 +341,8 @@ const Home = ({ t }) => {
             </Grid>            
           </Grid>
         </section>
+        </Grid>
+</Grid>
       </main>
 
       <footer className={styles.footer}>
