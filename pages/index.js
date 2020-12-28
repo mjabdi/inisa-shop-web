@@ -196,9 +196,6 @@ const Home = ({ t }) => {
 
 
             <Grid item xs={12}>
-            {/* 
-
-             */}
               <section id= "section4" className={styles.section4}>
               <div style={{  width: "100vw" , padding:"50px"}}>
                 <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
@@ -232,119 +229,158 @@ const Home = ({ t }) => {
               </section> 
             </Grid>
 
-            {/* <Grid item xs={12}>
-               <section id= "section5" className={styles.section5}>
-          <Grid container direction="row" spacing={3}>
-          <Grid item xs={12} md={6}>
-              <div className={styles.rightImages} >
-                  <Image
-                          src="/images/onlineshop2.png"
-                          width={300}
-                          height={300}
-                        />
+            <Grid item xs={12}>
+              <section id= "section5" className={styles.section5}>
+              <div style={{  width: "100vw" , padding:"50px"}}>
+                <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
+                  <Grid item xs={12} md={6}>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item>
+                          <div className={styles.rightImages} >
+                            <Image
+                            src="/images/onlineshop2.png"
+                            width={300}
+                            height={300}
+                            />
+                          </div>
+                        </Grid>
+                      </Grid>
+                    </Grid> 
+                  <Grid item xs={12} md={6}>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item>
+                          <div className={styles.texttitle} style={{fontSize:"36px" }}>
+                          خرید آنلاین از اینستاگرام
+                          </div>
+                          <div className={styles.textdesc} style={{fontSize:"18px" }}>
+                          خرید از فروشگاه های اینترنتی را بصورت آنلاین و فقط با چند کلیک در این سایت انجام دهید
+                          </div>
+                        </Grid>
+                      </Grid>
+                  </Grid>
+           
+                </Grid>
+                </div>
+              </section> 
+            </Grid>
 
-              </div>
-            </Grid>
-            <Grid item xs={12} md={6}>
-            <div className={styles.texttitleright} style={{fontSize:"36px" }}>
-            خرید آنلاین از اینستاگرام
-          </div>
-            <div className={styles.textdescright} style={{fontSize:"18px" }}>
-            خرید از فروشگاه های اینترنتی را بصورت آنلاین و فقط با چند کلیک در این سایت انجام دهید
-          </div>
-            </Grid>           
-          </Grid>
-        </section>
-            </Grid>
 
 
             <Grid item xs={12}>
               <section id= "section6" className={styles.section4}>
-          <Grid container direction="row" spacing={3}>
-            <Grid item xs={12} md={6}>
-            <div className={styles.texttitle} style={{fontSize:"36px" }}>
-            جستجو بر اساس محصول یا فروشنده
-          </div>
-            <div className={styles.textdesc} style={{fontSize:"18px" }}>
-             خریداران محترم به راحتی می توانند محصول مورد نظر را با مشخصات دلخواه جستجو نمایند و علاوه بر آن امکان جستجوی محصول بر اساس فروشنده مورد نظر و همچنین تمامی هشتگ های اینستاگرام  نیز فراهم می باشد.
-          </div>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <div className={styles.leftImages} >
-                  <Image
+              <div style={{  width: "100vw" , padding:"50px"}}>
+                <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
+                  <Grid item xs={12} md={6}>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item>
+                          <div className={styles.texttitle} style={{fontSize:"36px" }}>
+                          جستجو بر اساس محصول یا فروشنده
+                          </div>
+                          <div className={styles.textdesc} style={{fontSize:"18px" }}>
+                          خریداران محترم به راحتی می توانند محصول مورد نظر را با مشخصات دلخواه جستجو نمایند و علاوه بر آن امکان جستجوی محصول بر اساس فروشنده مورد نظر و همچنین تمامی هشتگ های اینستاگرام  نیز فراهم می باشد
+                          </div>
+                        </Grid>
+                      </Grid>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                  <Grid container direction="row" justify="center" alignItems="center">
+                                 <Grid item>
+                    <div className={styles.leftImages} >
+                      <Image
                           src="/images/onlineshop1.jpg"
                           width={300}
                           height={300}
-                        />
-
-              </div>
-            </Grid>            
-          </Grid>
-        </section>
-           </Grid>
-
-
-          <Grid item xs={12}>
-             <section id= "section7" className={styles.section5}>
-          <Grid container direction="row" spacing={3}>
-          <Grid item xs={12} md={6}>
-              <div className={styles.rightImages} >
-                  <Image
-                          src="/images/moreview.png"
-                          width={300}
-                          height={300}
-                        />
-
-              </div>
+                      />
+                    </div>
+                    </Grid>
+                    </Grid>
+                  </Grid>            
+                </Grid>
+                </div>
+              </section> 
             </Grid>
-            <Grid item xs={12} md={6}>
-            <div className={styles.texttitleright} style={{fontSize:"36px" }}>
-            افزایش بازدید و رشد فروش
-          </div>
-            <div className={styles.textdescright} style={{fontSize:"18px" }}>
-            با اتصال فروشگاه اینستاگرامی خود به این سایت نرخ بازدید در جستجوهای آنلاین برای محصولات خود را افزایش داده و در نتیجه شاهد فروش بیشتری باشید
-          </div>
-            </Grid>           
-          </Grid>
-        </section>
-          </Grid>
 
-          <Grid item xs={12}>
+            <Grid item xs={12}>
+              <section id= "section7" className={styles.section5}>
+              <div style={{  width: "100vw" , padding:"50px"}}>
+                <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
+                  <Grid item xs={12} md={6}>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item>
+                          <div className={styles.rightImages} >
+                            <Image
+                            src="/images/moreview.png"
+                            width={300}
+                            height={300}
+                            />
+                          </div>
+                        </Grid>
+                      </Grid>
+                    </Grid> 
+                  <Grid item xs={12} md={6}>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item>
+                          <div className={styles.texttitle} style={{fontSize:"36px" }}>
+                          افزایش بازدید و رشد فروش
+                          </div>
+                          <div className={styles.textdesc} style={{fontSize:"18px" }}>
+                          با اتصال فروشگاه اینستاگرامی خود به این سایت نرخ بازدید در جستجوهای آنلاین برای محصولات خود را افزایش داده و در نتیجه شاهد فروش بیشتری باشید
+                          </div>
+                        </Grid>
+                      </Grid>
+                  </Grid>
+           
+                </Grid>
+                </div>
+              </section> 
+            </Grid>   
+            <Grid item xs={12}>
               <section id= "section8" className={styles.section4}>
-          <Grid container direction="row" spacing={3}>
-            <Grid item xs={12} md={6}>
-            <div className={styles.texttitleseo} style={{fontSize:"36px" }}>
-            سئو
-          </div>
-            <div className={styles.textdescseo} style={{fontSize:"18px" }}>
-          این سایت با پیاده سازی فرآیندهای سئو اهداف زیر را پوشش داده و با به روز رسانی بهترین الگوها و الگوریتم های سئو، همواره در جهت پیشبرد هر چه بیشتر این اهداف کوشا می باشد:
-          <div>افزایش بازدید سایت
-          </div><div>
-          ایجاد برند و شناخت آن به کاربران جدید
-          </div><div>
-          افزایش ترافیک سایت
-          </div><div>
-          افزایش تعامل کاربران با سایت
-          </div><div>
-          افزایش فروش محصولات
-          </div><div>
-          رتبه برتر در موتورهای جستجو 
-          </div>
-          </div>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <div className={styles.leftImages} >
-                  <Image
+              <div style={{  width: "100vw" , padding:"50px"}}>
+                <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
+                  <Grid item xs={12} md={6}>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item>
+                          <div className={styles.texttitle} style={{fontSize:"36px" }}>
+                          سئو
+                          </div>
+                          <div className={styles.textdesc} style={{fontSize:"18px" }}>
+                          این سایت با پیاده سازی فرآیندهای سئو اهداف زیر را پوشش داده و با به روز رسانی بهترین الگوها و الگوریتم های سئو، همواره در جهت پیشبرد هر چه بیشتر این اهداف کوشا می باشد:
+                            <div>افزایش بازدید سایت
+                            </div><div>
+                            ایجاد برند و شناخت آن به کاربران جدید
+                            </div><div>
+                            افزایش ترافیک سایت
+                            </div><div>
+                            افزایش تعامل کاربران با سایت
+                            </div><div>
+                            افزایش فروش محصولات
+                            </div><div>
+                            رتبه برتر در موتورهای جستجو 
+                            </div>
+                          </div>
+                        </Grid>
+                      </Grid>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                  <Grid container direction="row" justify="center" alignItems="center">
+                                 <Grid item>
+                    <div className={styles.leftImages} >
+                      <Image
                           src="/images/seo.png"
                           width={300}
                           height={300}
-                        />
-
-              </div>
+                      />
+                    </div>
+                    </Grid>
+                    </Grid>
+                  </Grid>            
+                </Grid>
+                </div>
+              </section> 
             </Grid>            
-          </Grid>
-        </section>
-         </Grid> */}
+
+            
 </Grid>
       </main>
 
