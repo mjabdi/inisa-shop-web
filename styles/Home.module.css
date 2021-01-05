@@ -18,6 +18,17 @@
   background-repeat: no-repeat;
 
 }
+.section9{
+  padding-top: 100px;
+  background-color: #fafafa;
+  min-height: 700px;
+  /* width: 100vw;  */
+  background-size: cover;
+  background-image: url(../public/images/2bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
 .firstsec{
 
 
