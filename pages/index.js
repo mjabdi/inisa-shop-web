@@ -99,16 +99,16 @@ const Home = ({ t }) => {
     setHpc_piscs_x(scrollTop);
     setHpc_piscs_y(-scrollTop);
 
-    degree = 30 - scrollTop / 2;
+    degree = 30 - scrollTop;
     if (degree > 30) degree = 30;
 
     if (degree < 0) degree = 0;
 
     setHpc_phone_degree(degree);
-    let x = scrollTop * 4;
-    let y = scrollTop * 8;
-    if (x > 220) x = 220;
-    if (y > 450) y = 450;
+    let x = scrollTop / 5;
+    let y = scrollTop * 1.5 ;
+    if (x > 30) x = 30;
+    if (y > 60) y = 60;
     setHpc_phone_x(x);
     setHpc_phone_y(y);
 
@@ -173,54 +173,82 @@ const Home = ({ t }) => {
                       justify="center"
                       alignItems="stretch"
                     >
-                      <div style={{paddingTop:"25%"}}>
-                      <Grid item>
-                        <h1 className={hpcAnimationClasses}>
-                          <div>همین حالا آغاز کنید</div>
-                          <div>
-                            <span
-                              className={clx(
-                                styles.hpc_underlined,
-                                getCurrentSlogan().bg
-                              )}
+                      <div style={{ paddingTop: "25%" }}>
+                        <Grid item>
+                          <h1 className={hpcAnimationClasses}>
+                            <div>همین حالا آغاز کنید</div>
+                            <div>
+                              <span
+                                className={clx(
+                                  styles.hpc_underlined,
+                                  getCurrentSlogan().bg
+                                )}
+                              >
+                                {getSloganPart()}
+                              </span>
+                              <span
+                                className={clx(
+                                  styles.hpc_caret,
+                                  styles.hpc_caret_show,
+                                  styles.hpc_caret_blink
+                                )}
+                              ></span>
+                            </div>
+                          </h1>
+                          <p className={hpcAnimationClasses2}>
+                            با ما فروش آنلاین را تجربه کنید. با اینیسا، فروشگاه
+                            رایگان خود را برای همیشه داشته باشید. یکبار ثبت نام
+                            کنید و همیشه استفاده کنید.
+                          </p>
+                          <div className={hpcAnimationClasses3}>
+                            <Button
+                              style={{
+                                backgroundColor: "#111111",
+                                color: "#fff",
+                                width: "200px",
+                                padding: "10px",
+                                marginRight: "250px",
+                              }}
+                              type="button"
+                              variant="contained"
                             >
-                              {getSloganPart()}
-                            </span>
-                            <span
-                              className={clx(
-                                styles.hpc_caret,
-                                styles.hpc_caret_show,
-                                styles.hpc_caret_blink
-                              )}
-                            ></span>
+                              رایگان فروشگاه بساز
+                            </Button>
                           </div>
-                        </h1>
-                        <p className={hpcAnimationClasses2}>
-                          با ما فروش آنلاین را تجربه کنید. با اینیسا، فروشگاه
-                          رایگان خود را برای همیشه داشته باشید. یکبار ثبت نام
-                          کنید و همیشه استفاده کنید.
-                        </p>
-                        <div className={hpcAnimationClasses3}>
-                          <Button
-                            style={{
-                              backgroundColor: "#111111",
-                              color: "#fff",
-                              width: "200px",
-                              padding: "10px",
-                              marginRight: "250px",
-                            }}
-                            type="button"
-                            variant="contained"
-                          >
-                            رایگان فروشگاه بساز
-                          </Button>
-                        </div>
-                      </Grid>
+                        </Grid>
                       </div>
                     </Grid>
                   </div>
                 </Grid>
                 <Grid item id="sec12" xs={12} md={6}>
+                  <div className={styles.phone_container}>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-end"
+                      alignItems="center"
+                      spacing={4}
+                    >
+                      <Grid item>
+                        <div
+                          className={clx(styles.hpc_phone__cover)}
+                          style={{
+                            transform: `rotate(${hpc_phone_degree}deg) translateX(${hpc_phone_x}vw) translateY(${hpc_phone_y}vh)`,
+                          }}>
+                               <div className={clx(styles.hpc_phone__frame)}>
+                                   <div className={clx(styles.hpc_phone_slide,styles.hpc_phone_slide_next)}>
+                                      <img src="/images/phone-slide2.jpg" width="100%" height="100%" alt="phone-pic"/>
+                                   </div> 
+                                  <div className={clx(styles.hpc_phone_slide,styles.hpc_phone_slide_current)}>
+                                      <img src="/images/phone-slide1.jpg" width="100%" height="100%" alt="phone-pic"/>
+                                   </div>   
+                              </div>
+                        </div>
+                      </Grid>
+                      <Grid item></Grid>
+                    </Grid>
+                  </div>
+
                   {/* <div className={clx(styles.hpc_phone__frame)}>
                     
                     <div className={clx(styles.hpc_phone__slide,styles.hpc_phone__slide__current)}>
