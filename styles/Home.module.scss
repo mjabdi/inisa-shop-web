@@ -148,10 +148,15 @@ $blue : #00F;
 
 .hpc_phone__cover{
     position: absolute;
-    margin-top: -45vh;
-    margin-right: 26vw;
-    width: 348px;
-    height: 556px;
+    // margin-top: -45vh;
+    // margin-right: 26vw;
+    // width: 348px;
+    // height: 556px;
+    // height: auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
     background-size: contain;
     background-image: url(/images/phone.png);
     background-repeat: no-repeat;
@@ -159,6 +164,16 @@ $blue : #00F;
     will-change: width,height;
     z-index: 25;
     transform: rotate(30deg);
+}
+
+.hpc_phone__frame {
+  width: 197px;
+  height: 426px;
+  left: 24px;
+  top: 22px; 
+  position: absolute;
+  overflow: hidden;
+  transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
 }
 
 .hpc_tablet__cover{
@@ -176,13 +191,19 @@ $blue : #00F;
   transform: rotate(30deg);
 }
 
-.hpc_phone__slide_current {
-  z-index: 26;
+.hpc_phone__slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hpc_phone__slide__current {
+  left: 0;
   animation-duration: 0.7s;
   animation-name: hpc-phone-slide-current;
   animation-timing-function: ease-in-out;
-
 }
+
 .hpc_phone__slide_current {
   left: 0;
 }
@@ -259,11 +280,6 @@ $blue : #00F;
   // background-color: $blue;
   width: 100%;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
-  padding-left: 50px;
-  padding-right: 80px;
-  padding-top: 70px;
   z-index: 21;
 }
 .sec12{
