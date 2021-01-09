@@ -233,7 +233,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "105vh 10vw auto 20vw",
+                                        margin: "160vh 10vw auto 20vw",
                                         transform:
                                           "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                       },
@@ -298,7 +298,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "105vh -auto auto auto",
+                                        margin: "160vh auto auto auto",
                                         transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
                                       },
                                       ease: "Strong.easeOut",
