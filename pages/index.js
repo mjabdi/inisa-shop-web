@@ -14,6 +14,8 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
+const scrollDuration = 1500
+
 const Home = ({ t }) => {
   const sloganArray = [
     { title: "فروش آنلاین محصول", bg: styles.hpc_underlined_yellow },
@@ -214,7 +216,7 @@ const Home = ({ t }) => {
                       >
                         <Grid item md={8}>
                           <Controller>
-                            <Scene triggerHook="onScroll" duration={1200} pin>
+                            <Scene triggerHook="onScroll" duration={scrollDuration} pin>
                               {(progress) => (
                                 <Timeline totalProgress={progress} paused>
                                   <Tween
@@ -280,7 +282,7 @@ const Home = ({ t }) => {
 
                         <Grid item md={4}>
                           <Controller>
-                            <Scene triggerHook="onScroll" duration={1200} pin>
+                            <Scene triggerHook="onScroll" duration={scrollDuration} pin>
                               {(progress) => (
                                 <Timeline totalProgress={progress} paused>
                                   <Tween
@@ -347,7 +349,7 @@ const Home = ({ t }) => {
                     </div>
 
                     <Controller>
-                      <Scene triggerHook="onScroll" duration={1200} pin>
+                      <Scene triggerHook="onScroll" duration={scrollDuration} pin>
                         {(progress) => (
                           <Timeline totalProgress={progress} paused>
                             <Tween
@@ -402,7 +404,7 @@ const Home = ({ t }) => {
                 <Grid item id="sec21" xs={12} md={6}>
                   <div className={styles.sec21}>
                     <Controller>
-                      <Scene triggerHook="onScroll" duration={1200} pin>
+                      <Scene triggerHook="onScroll" duration={scrollDuration} pin>
                         {(progress) => (
                           <Timeline totalProgress={progress} paused>
                             <Tween
