@@ -14,7 +14,7 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
-const scrollDuration = 1000
+const scrollDuration = 700
 
 const Home = ({ t }) => {
   const sloganArray = [
@@ -235,7 +235,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "800px 10vw auto 20vw",
+                                        margin: "80vh 10vw auto 20vw",
                                         transform:
                                           "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                       },
@@ -300,7 +300,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "800px auto auto auto",
+                                        margin: "80vh auto auto auto",
                                         transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
                                       },
                                       ease: "Strong.easeOut",
