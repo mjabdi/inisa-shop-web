@@ -112,15 +112,18 @@ const Home = ({ t }) => {
   };
 
   const getTabletXOffset1 = () => {
-    let x = 400 - ((windowWidth - 1200) / 720) * 180;
-    if (x > 400) x = 400;
-    return 220;
+    let x = 100 + ((windowWidth - 1200) / 720) * 180;
+    return x;
   };
 
   const getTabletXOffset2 = () => {
-    let x = 600 - ((windowWidth - 1200) / 720) * 180;
-    if (x > 600) x = 600;
-    return 430;
+    let x = 300 + ((windowWidth - 1200) / 720) * 180;
+    return x;
+  };
+
+  const getTabletYOffset1 = () => {
+    let y = 250 + ((windowWidth - 1200) / 720) * 100;
+    return y;
   };
 
   return (
@@ -230,7 +233,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "110vh 10vw auto 20vw",
+                                        margin: "105vh 10vw auto 20vw",
                                         transform:
                                           "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                       },
@@ -289,13 +292,13 @@ const Home = ({ t }) => {
                                     from={{
                                       css: {
                                         margin: "10vh auto auto auto",
-                                        transform: `matrix(0.86603, 0.5, -0.5, 0.86603, ${getTabletXOffset1()}  , 350)`,
+                                        transform: `matrix(0.86603, 0.5, -0.5, 0.86603, ${getTabletXOffset1()}  ,  ${getTabletYOffset1()})`,
                                       },
                                       ease: "Strong.easeOut",
                                     }}
                                     to={{
                                       css: {
-                                        margin: "110vh -auto auto auto",
+                                        margin: "105vh -auto auto auto",
                                         transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
                                       },
                                       ease: "Strong.easeOut",
