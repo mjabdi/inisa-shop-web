@@ -395,15 +395,51 @@ const Home = ({ t }) => {
               <Grid
                 container
                 id="sec2"
-                direction="row"
-                justify="center"
+                direction="row-reverse"
+                justify="flex-start"
                 alignItems="center"
               >
                 <Grid item id="sec21" xs={12} md={6}>
-                  <div className={styles.sec21}></div>
-                </Grid>
-                <Grid item id="sec22" xs={12} md={6}>
-                  <div className={styles.sec22}></div>
+                  <div className={styles.sec21}>
+                    <Controller>
+                      <Scene triggerHook="onScroll" duration={1200} pin>
+                        {(progress) => (
+                          <Timeline totalProgress={progress} paused>
+                            <Tween
+                              from={{
+                                css: {
+                                  // margin: "0vh -5vw auto auto",
+                               
+                                  transform:
+                                    "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
+                                },
+                                ease: "Strong.easeOut",
+                              }}
+                              to={{
+                                css: {
+                               
+                                  transform: "matrix(1, 0, 0, 1, 0, 0)",
+                                },
+                                ease: "Strong.easeOut",
+                              }}
+                              totalProgress={progress}
+                              paused
+                            >
+                          
+                                <div
+                                  className={clx(
+                                    styles.hpc_sec21,
+                                  )}
+                                >
+                                  {" "}
+                              </div>
+
+                            </Tween>
+                          </Timeline>
+                        )}
+                      </Scene>
+                    </Controller>
+                  </div>
                 </Grid>
               </Grid>
             </div>

@@ -146,6 +146,19 @@ $blue : #00F;
 }
 
 
+.hpc_sec21{
+  width: 150vw;
+  height: 100vh;
+  position: absolute;
+  // top: -90vh;
+  // right: -15vw;
+  // transition: background-color 0.5s ease-in-out;
+  // margin-left: -50px;
+   background-color: #fae053;
+}
+
+
+
 .hpc_phone__cover{
     width: 348px;
     height: 556px;
@@ -264,8 +277,9 @@ $blue : #00F;
   height: 100vh;
 }
 .grid2{
-  background-color: #fafafa;
+  background-color: #fff;
   width: 100%;
+  height: 100vh;
 }
 .grid3{
   background-color:#fafafa;
@@ -303,9 +317,8 @@ $blue : #00F;
   min-height: 100px;
 }
 .sec21{
-  background-color: #c9aa13;
   width: 100%;
-  min-height: 100px;
+  min-height: 100vh;
 }
 .sec22{
   background-color: #80bfdd;
