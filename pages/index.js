@@ -104,7 +104,7 @@ const Home = ({ t }) => {
   };
 
   const getCurrentSloganIndex = () => {
-    return scrollTop > 10 ? 0 : sloganArrayIndex;
+    return scrollTop > 1 ? 0 : sloganArrayIndex;
   };
 
   const getSloganPart = () => {
@@ -160,7 +160,7 @@ const Home = ({ t }) => {
                       justify="center"
                       alignItems="stretch"
                     >
-                      <div style={{ paddingTop: "40%" }}>
+                      <div style={{ paddingTop: "20%" }}>
                         <Grid item>
                           <h1 className={hpcAnimationClasses}>
                             <div>همین حالا آغاز کنید</div>
@@ -418,7 +418,7 @@ const Home = ({ t }) => {
                                   // margin: "0vh -5vw auto auto",
                                
                                   transform:
-                                    "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
+                                    "matrix(0.86603, 0.5, -0.5, 0.86603, 0, -300)",
                                 },
                                 ease: "Strong.easeOut",
                               }}
