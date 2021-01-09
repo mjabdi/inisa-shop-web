@@ -114,13 +114,13 @@ const Home = ({ t }) => {
   const getTabletXOffset1 = () => {
     let x = 400 - ((windowWidth - 1200) / 720) * 180;
     if (x > 400) x = 400;
-    return x;
+    return 220;
   };
 
   const getTabletXOffset2 = () => {
     let x = 600 - ((windowWidth - 1200) / 720) * 180;
     if (x > 600) x = 600;
-    return x;
+    return 430;
   };
 
   return (

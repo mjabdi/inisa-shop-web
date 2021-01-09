@@ -160,8 +160,8 @@ $blue : #00F;
 
 
 .hpc_phone__cover{
-    width: 348px;
-    height: 556px;
+    width: 18vw;
+    height: 29vw;
     background-size: contain;
     background-image: url(/images/phone.png);
     background-repeat: no-repeat;
@@ -172,22 +172,22 @@ $blue : #00F;
 }
 
 .hpc_phone__frame {
-  width: 197px;
-  height: 426px;
-  left: 24px;
-  top: 22px; 
+  width: 10.3vw;
+  height: 22.1vw;
+  left: 1.3vw;
+  top: 1vw; 
   position: absolute;
   overflow: hidden;
   transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
-  border-radius: 25px;
-  padding-top: 3px;
+  border-radius: 10%;
+  padding-top: 5px;
   padding-bottom: 2px;
 }
 
 .hpc_tablet__cover{
   
-  width: 1044px;
-  height: 745px;
+  width: 54.3vw;
+  height: 38.8vw;
   background-size: contain;
   background-image: url(/images/tablet.png);
   background-repeat: no-repeat;
@@ -198,10 +198,10 @@ $blue : #00F;
 }
 
 .hpc_tablet__frame {
-  width: 860px;
-  height: 592px;
-  left: 50px;
-  top: 22px; 
+  width: 44.7vw;
+  height: 30.8vw;
+  left: 2.6vw;
+  top: 1vw; 
   position: absolute;
   overflow: hidden;
   transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
