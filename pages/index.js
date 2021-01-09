@@ -8,18 +8,13 @@ import Image from "next/image";
 import { useSpring, animated } from "react-spring";
 import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import FacilityCard from "../components/home/facility-card";
-import SectionCard from "../components/home/section-card";
+
 import clx from "classnames";
 import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
-import {
-  FormatColorText,
-  FormatUnderlined,
-  Rotate90DegreesCcw,
-} from "@material-ui/icons";
+
 
 const Home = ({ t }) => {
   const sloganArray = [
@@ -51,6 +46,10 @@ const Home = ({ t }) => {
   const [scrollTop, setScrollTop] = React.useState(0);
   const [shouldUpdateScroll, setShouldUpdateScroll] = React.useState(false);
 
+  const [windowWidth, setWindowWidth] = React.useState(1000)
+
+
+
   React.useEffect(() => {
     i18n.changeLanguage("fa");
 
@@ -78,24 +77,31 @@ const Home = ({ t }) => {
     );
 
     window.addEventListener("scroll", handleScroll);
-
-    // const scrollTimer = setInterval(() => {
-    //   setShouldUpdateScroll(true);
-    // }, 10);
-
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleLoad)
+    
     return () => {
       clearInterval(sloganTimer);
-      clearInterval(scrollTimer);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resiloadze", handleLoad);
     };
   }, []);
 
+  const handleLoad = () =>
+  {
+    setWindowWidth(window.innerWidth)
+  }
+
+  const handleResize = () =>
+  {
+    setWindowWidth(window.innerWidth)
+  }
+
+ 
   const handleScroll = () => {
-    // if (shouldUpdateScroll) {
       const _scrollTop = parseInt((window.scrollY / window.innerHeight) * 100);
       setScrollTop(_scrollTop);
-      // setShouldUpdateScroll(false);
-    // }
   };
 
   const getCurrentSlogan = () => {
@@ -103,13 +109,25 @@ const Home = ({ t }) => {
   };
 
   const getCurrentSloganIndex = () => {
-    console.log(scrollTop);
     return scrollTop > 10 ? 0 : sloganArrayIndex;
   };
 
   const getSloganPart = () => {
     return getCurrentSlogan().title.substr(0, sloganIndex);
   };
+
+  const getTabletXOffset1 = () =>
+  {
+    return 450 * (800 / windowWidth)
+  }
+
+  const getTabletXOffset2 = () =>
+  {
+    return 1000 * (800 / windowWidth)
+  }
+
+
+
 
   return (
     <>
@@ -137,7 +155,7 @@ const Home = ({ t }) => {
                 justify="center"
                 alignItems="center"
               >
-                <Grid item id="sec11" xs={12} md={5}>
+                <Grid item id="sec11" xs={12} md={4}>
                   <div className={styles.sec11}>
                     <Grid
                       container
@@ -192,7 +210,7 @@ const Home = ({ t }) => {
                     </Grid>
                   </div>
                 </Grid>
-                <Grid item id="sec12" xs={12} md={6}>
+                <Grid item id="sec12" xs={12} md={7}>
                   <div className={styles.phone_container}>
                     <Grid
                       container
@@ -216,7 +234,7 @@ const Home = ({ t }) => {
                                   }}
                                   to={{
                                     css: {
-                                      margin: "80vh 10vw auto 20vw",
+                                      margin: "100vh 10vw auto 20vw",
                                       transform:
                                         "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                     },
@@ -272,17 +290,17 @@ const Home = ({ t }) => {
                                 <Tween
                                   from={{
                                     css: {
-                                      margin: "auto auto auto auto",
+                                      margin: "10vh auto auto auto",
                                       transform:
-                                        "matrix(0.86603, 0.5, -0.5, 0.86603, 250, 450)",
+                                        `matrix(0.86603, 0.5, -0.5, 0.86603, ${getTabletXOffset1()}  , 450)`,
                                     },
                                     ease: "Strong.easeOut",
                                   }}
                                   to={{
                                     css: {
-                                      margin: "80vh -auto auto auto",
+                                      margin: "100vh -auto auto auto",
                                       transform:
-                                        "matrix(1, 0.0, 0.0, 1 , 450, -50)",
+                                        `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
                                     },
                                     ease: "Strong.easeOut",
                                   }}
