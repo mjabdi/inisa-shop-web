@@ -14,7 +14,7 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
-const scrollDuration = 1500
+const scrollDuration = 1000
 
 const Home = ({ t }) => {
   const sloganArray = [
@@ -160,7 +160,7 @@ const Home = ({ t }) => {
                       justify="center"
                       alignItems="stretch"
                     >
-                      <div style={{ paddingTop: "25%" }}>
+                      <div style={{ paddingTop: "40%" }}>
                         <Grid item>
                           <h1 className={hpcAnimationClasses}>
                             <div>همین حالا آغاز کنید</div>
@@ -195,6 +195,8 @@ const Home = ({ t }) => {
                                 width: "200px",
                                 padding: "10px",
                                 marginRight: "250px",
+                                marginTop:"20px",
+                                fontSize: "1rem"
                               }}
                               type="button"
                               variant="contained"
@@ -233,7 +235,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "160vh 10vw auto 20vw",
+                                        margin: "800px 10vw auto 20vw",
                                         transform:
                                           "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                       },
@@ -298,7 +300,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "160vh auto auto auto",
+                                        margin: "800px auto auto auto",
                                         transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
                                       },
                                       ease: "Strong.easeOut",
