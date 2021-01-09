@@ -354,7 +354,7 @@ const Home = ({ t }) => {
                     </div>
 
                     <Controller>
-                      <Scene triggerHook="onScroll" duration={2000} pin>
+                      <Scene triggerHook="onScroll" duration={1000} pin>
                         {(progress) => (
                           <Timeline totalProgress={progress} paused>
                             <Tween
