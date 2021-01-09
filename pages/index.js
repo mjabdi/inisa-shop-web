@@ -14,7 +14,7 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
-const scrollDuration = 900
+const scrollDuration = 900;
 
 const Home = ({ t }) => {
   const sloganArray = [
@@ -126,6 +126,11 @@ const Home = ({ t }) => {
     return y;
   };
 
+  const getCornerOffset = () => {
+    let y = -(((windowWidth) / 500) * 100);
+    return y;
+  };
+
   return (
     <>
       <Head>
@@ -195,8 +200,8 @@ const Home = ({ t }) => {
                                 width: "200px",
                                 padding: "10px",
                                 marginRight: "250px",
-                                marginTop:"20px",
-                                fontSize: "1rem"
+                                marginTop: "20px",
+                                fontSize: "1rem",
                               }}
                               type="button"
                               variant="contained"
@@ -221,7 +226,11 @@ const Home = ({ t }) => {
                       >
                         <Grid item md={8}>
                           <Controller>
-                            <Scene triggerHook="onScroll" duration={scrollDuration} pin>
+                            <Scene
+                              triggerHook="onScroll"
+                              duration={scrollDuration}
+                              pin
+                            >
                               {(progress) => (
                                 <Timeline totalProgress={progress} paused>
                                   <Tween
@@ -287,7 +296,11 @@ const Home = ({ t }) => {
 
                         <Grid item md={4}>
                           <Controller>
-                            <Scene triggerHook="onScroll" duration={scrollDuration} pin>
+                            <Scene
+                              triggerHook="onScroll"
+                              duration={scrollDuration}
+                              pin
+                            >
                               {(progress) => (
                                 <Timeline totalProgress={progress} paused>
                                   <Tween
@@ -354,7 +367,7 @@ const Home = ({ t }) => {
                     </div>
 
                     <Controller>
-                      <Scene triggerHook="onScroll" duration={1000} pin>
+                      <Scene triggerHook="onScroll" duration={1500} pin>
                         {(progress) => (
                           <Timeline totalProgress={progress} paused>
                             <Tween
@@ -368,8 +381,8 @@ const Home = ({ t }) => {
                               }}
                               to={{
                                 css: {
-                                  margin: "-80vh -50vw auto auto",
-                                  transform: "matrix(1, 0.0, 0.0, 1 , 0, 0)",
+                                  margin: "-40vh -35vw auto auto",
+                                  transform: "matrix(1, 0, 0, 1 , 0, 0)",
                                 },
                                 ease: "Strong.easeOut",
                               }}
@@ -397,60 +410,57 @@ const Home = ({ t }) => {
             </div>
           </Grid>
 
-          <Grid item xs={12} id="2">
-            <div className={styles.grid2}>
-              <Grid
-                container
-                id="sec2"
-                direction="row-reverse"
-                justify="flex-start"
-                alignItems="center"
-              >
-                <Grid item id="sec21" xs={12} md={6}>
-                  <div className={styles.sec21}>
-                    <Controller>
-                      <Scene triggerHook="onScroll" duration={scrollDuration} pin>
-                        {(progress) => (
-                          <Timeline totalProgress={progress} paused>
-                            <Tween
-                              from={{
-                                css: {
-                                  // margin: "0vh -5vw auto auto",
-                               
-                                  transform:
-                                    "matrix(0.86603, 0.5, -0.5, 0.86603, 0, -300)",
-                                },
-                                ease: "Strong.easeOut",
-                              }}
-                              to={{
-                                css: {
-                               
-                                  transform: "matrix(1, 0, 0, 1, 0, 0)",
-                                },
-                                ease: "Strong.easeOut",
-                              }}
-                              totalProgress={progress}
-                              paused
-                            >
-                          
-                                <div
-                                  className={clx(
-                                    styles.hpc_sec21,
-                                  )}
-                                >
-                                  {" "}
-                              </div>
+          {windowWidth > 0 && (
+            <Grid item xs={12} id="2">
+              <div className={styles.grid2}>
+                <Grid
+                  container
+                  id="sec2"
+                  direction="row-reverse"
+                  justify="flex-start"
+                  alignItems="center"
+                >
+                  <Grid item id="sec21" xs={12} md={6}>
+                    <div className={styles.sec21}>
+                      <Controller>
+                        <Scene
+                          triggerHook="onScroll"
+                          duration={scrollDuration}
+                          pin
+                        >
+                          {(progress) => (
+                            <Timeline totalProgress={progress} paused>
+                              <Tween
+                                from={{
+                                  css: {
+                                    // margin: "0vh -5vw auto auto",
 
-                            </Tween>
-                          </Timeline>
-                        )}
-                      </Scene>
-                    </Controller>
-                  </div>
+                                    transform: `matrix(0.86603, 0.5, -0.5, 0.86603, 0, ${getCornerOffset()})`,
+                                  },
+                                  ease: "Strong.easeOut",
+                                }}
+                                to={{
+                                  css: {
+                                    transform: "matrix(1, 0, 0, 1, 0, 0)",
+                                  },
+                                  ease: "Strong.easeOut",
+                                }}
+                                totalProgress={progress}
+                                paused
+                              >
+                                <div className={clx(styles.hpc_sec21)}> </div>
+                              </Tween>
+                            </Timeline>
+                          )}
+                        </Scene>
+                      </Controller>
+                    </div>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </div>
-          </Grid>
+              </div>
+            </Grid>
+          )}
+
           <Grid item xs={12} md={12} id="3">
             <div className={styles.grid3}>
               <Grid
