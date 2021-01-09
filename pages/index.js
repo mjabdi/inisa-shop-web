@@ -14,7 +14,7 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
-const scrollDuration = 700
+const scrollDuration = 900
 
 const Home = ({ t }) => {
   const sloganArray = [
@@ -235,7 +235,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "80vh 10vw auto 20vw",
+                                        margin: "100vh 10vw auto 20vw",
                                         transform:
                                           "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                       },
@@ -300,7 +300,7 @@ const Home = ({ t }) => {
                                     }}
                                     to={{
                                       css: {
-                                        margin: "80vh auto auto auto",
+                                        margin: "100vh auto auto auto",
                                         transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
                                       },
                                       ease: "Strong.easeOut",
@@ -354,7 +354,7 @@ const Home = ({ t }) => {
                     </div>
 
                     <Controller>
-                      <Scene triggerHook="onScroll" duration={scrollDuration} pin>
+                      <Scene triggerHook="onScroll" duration={2000} pin>
                         {(progress) => (
                           <Timeline totalProgress={progress} paused>
                             <Tween
@@ -368,7 +368,7 @@ const Home = ({ t }) => {
                               }}
                               to={{
                                 css: {
-                                  margin: "-80vh -40vw auto auto",
+                                  margin: "-80vh -50vw auto auto",
                                   transform: "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                 },
                                 ease: "Strong.easeOut",
