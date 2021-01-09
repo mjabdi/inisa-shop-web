@@ -368,7 +368,7 @@ const Home = ({ t }) => {
                               }}
                               to={{
                                 css: {
-                                  margin: "-50vh -40vw auto auto",
+                                  margin: "-80vh -40vw auto auto",
                                   transform: "matrix(1, 0.0, 0.0, 1 , 0, 0)",
                                 },
                                 ease: "Strong.easeOut",
