@@ -147,24 +147,13 @@ $blue : #00F;
 
 
 .hpc_phone__cover{
-    // position: absolute;
-    // margin-top: -45vh;
-    // margin-right: 26vw;
-    // width: 348px;
-    // height: 556px;
-    // height: auto;
-    // position: absolute;
-
     width: 348px;
     height: 556px;
-
     background-size: contain;
     background-image: url(/images/phone.png);
     background-repeat: no-repeat;
     transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
     will-change: width,height;
-    z-index: 25;
-    transform: rotate(30deg);
     overflow: hidden;
     z-index: 30;
 }
@@ -183,9 +172,7 @@ $blue : #00F;
 }
 
 .hpc_tablet__cover{
-  position: absolute;
-  margin-top: 15vh;
-  margin-right: -37vw;
+  
   width: 1044px;
   height: 745px;
   background-size: contain;
@@ -193,8 +180,21 @@ $blue : #00F;
   background-repeat: no-repeat;
   transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
   will-change: width,height;
-  z-index: 25;
-  transform: rotate(30deg);
+  overflow: hidden;
+  z-index: 30;
+}
+
+.hpc_tablet__frame {
+  width: 860px;
+  height: 592px;
+  left: 50px;
+  top: 22px; 
+  position: absolute;
+  overflow: hidden;
+  transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
+  border-radius: 25px;
+  padding-top: 3px;
+  padding-bottom: 2px;
 }
 
 .hpc_phone_slide {
@@ -222,7 +222,7 @@ $blue : #00F;
   animation-name: hpc-phone-slide-next;
   animation-timing-function: ease-in-out;
 }
-@keyframes hpc_phone_slide_current {
+@keyframes hpc-phone-slide-current {
   from {
       right: 0;
   }
@@ -230,7 +230,7 @@ $blue : #00F;
       right: 100%;
   }
 }
-@keyframes hpc_phone_slide_next {
+@keyframes hpc-phone-slide-next {
   from {
       right: -100%;
   }

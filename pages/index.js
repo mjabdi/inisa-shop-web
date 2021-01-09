@@ -12,6 +12,9 @@ import FacilityCard from "../components/home/facility-card";
 import SectionCard from "../components/home/section-card";
 import clx from "classnames";
 import Button from "@material-ui/core/Button";
+import { Controller, Scene } from "react-scrollmagic";
+import { Tween, Timeline } from "react-gsap";
+
 import {
   FormatColorText,
   FormatUnderlined,
@@ -45,17 +48,8 @@ const Home = ({ t }) => {
     clx(styles.hpc_animate)
   );
 
-  const [hpc_pics_degree, setHpc_piscs_degree] = React.useState(30);
-  const [hpc_pics_x, setHpc_piscs_x] = React.useState(0);
-  const [hpc_pics_y, setHpc_piscs_y] = React.useState(0);
-
-  const [hpc_phone_degree, setHpc_phone_degree] = React.useState(30);
-  const [hpc_phone_x, setHpc_phone_x] = React.useState(0);
-  const [hpc_phone_y, setHpc_phone_y] = React.useState(0);
-
-  const [hpc_tablet_degree, setHpc_tablet_degree] = React.useState(30);
-  const [hpc_tablet_x, setHpc_tablet_x] = React.useState(0);
-  const [hpc_tablet_y, setHpc_tablet_y] = React.useState(0);
+  const [scrollTop, setScrollTop] = React.useState(0);
+  const [shouldUpdateScroll, setShouldUpdateScroll] = React.useState(false);
 
   React.useEffect(() => {
     i18n.changeLanguage("fa");
@@ -85,46 +79,23 @@ const Home = ({ t }) => {
 
     window.addEventListener("scroll", handleScroll);
 
+    // const scrollTimer = setInterval(() => {
+    //   setShouldUpdateScroll(true);
+    // }, 10);
+
     return () => {
       clearInterval(sloganTimer);
+      clearInterval(scrollTimer);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleScroll = (event) => {
-    const scrollTop = parseInt((window.scrollY / window.innerHeight) * 100);
-    let degree = 30 - scrollTop;
-    if (degree < 0) degree = 0;
-    setHpc_piscs_degree(degree);
-    setHpc_piscs_x(scrollTop);
-    setHpc_piscs_y(-scrollTop);
-
-    degree = 30 - scrollTop;
-    if (degree > 30) degree = 30;
-
-    if (degree < 0) degree = 0;
-
-    setHpc_phone_degree(degree);
-    let x = scrollTop / 5;
-    let y = scrollTop * 1.5 ;
-    if (x > 30) x = 30;
-    if (y > 60) y = 60;
-    setHpc_phone_x(x);
-    setHpc_phone_y(y);
-
-    setHpc_tablet_degree(degree);
-    let x2 = scrollTop * 7;
-    let y2 = scrollTop * 1.5;
-
-    if (x2 > 400) {
-      x2 = 400;
-    }
-    if (y2 > 50) {
-      y2 = 50;
-    }
-
-    setHpc_tablet_x(x2);
-    setHpc_tablet_y(y2);
+  const handleScroll = () => {
+    // if (shouldUpdateScroll) {
+      const _scrollTop = parseInt((window.scrollY / window.innerHeight) * 100);
+      setScrollTop(_scrollTop);
+      // setShouldUpdateScroll(false);
+    // }
   };
 
   const getCurrentSlogan = () => {
@@ -132,7 +103,8 @@ const Home = ({ t }) => {
   };
 
   const getCurrentSloganIndex = () => {
-    return hpc_pics_degree < 25 ? 0 : sloganArrayIndex;
+    console.log(scrollTop);
+    return scrollTop > 10 ? 0 : sloganArrayIndex;
   };
 
   const getSloganPart = () => {
@@ -224,68 +196,180 @@ const Home = ({ t }) => {
                   <div className={styles.phone_container}>
                     <Grid
                       container
-                      direction="row"
+                      direction="row-reverse"
                       justify="flex-end"
-                      alignItems="center"
-                      spacing={4}
+                      alignItems="flex-start"
                     >
-                      <Grid item>
-                        <div
-                          className={clx(styles.hpc_phone__cover)}
-                          style={{
-                            transform: `rotate(${hpc_phone_degree}deg) translateX(${hpc_phone_x}vw) translateY(${hpc_phone_y}vh)`,
-                          }}>
-                               <div className={clx(styles.hpc_phone__frame)}>
-                                   <div className={clx(styles.hpc_phone_slide,styles.hpc_phone_slide_next)}>
-                                      <img src="/images/phone-slide2.jpg" width="100%" height="100%" alt="phone-pic"/>
-                                   </div> 
-                                  <div className={clx(styles.hpc_phone_slide,styles.hpc_phone_slide_current)}>
-                                      <img src="/images/phone-slide1.jpg" width="100%" height="100%" alt="phone-pic"/>
-                                   </div>   
-                              </div>
-                        </div>
+                      <Grid item md={8}>
+                        <Controller>
+                          <Scene triggerHook="onScroll" duration={1200} pin>
+                            {(progress) => (
+                              <Timeline totalProgress={progress} paused>
+                                <Tween
+                                  from={{
+                                    css: {
+                                      margin: "10vh 25vw auto 20vw",
+                                      transform:
+                                        "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
+                                    },
+                                    ease: "Strong.easeOut",
+                                  }}
+                                  to={{
+                                    css: {
+                                      margin: "80vh 10vw auto 20vw",
+                                      transform:
+                                        "matrix(1, 0.0, 0.0, 1 , 0, 0)",
+                                    },
+                                    ease: "Strong.easeOut",
+                                  }}
+                                  totalProgress={progress}
+                                  paused
+                                >
+                                  <div className={clx(styles.hpc_phone__cover)}>
+                                    <div
+                                      className={clx(styles.hpc_phone__frame)}
+                                    >
+                                      <div
+                                        className={clx(
+                                          styles.hpc_phone_slide,
+                                          styles.hpc_phone_slide_next
+                                        )}
+                                      >
+                                        <img
+                                          src="/images/phone-slide2.jpg"
+                                          width="100%"
+                                          height="100%"
+                                          alt="phone-pic"
+                                        />
+                                      </div>
+                                      <div
+                                        className={clx(
+                                          styles.hpc_phone_slide,
+                                          styles.hpc_phone_slide_current
+                                        )}
+                                      >
+                                        <img
+                                          src="/images/phone-slide1.jpg"
+                                          width="100%"
+                                          height="100%"
+                                          alt="phone-pic"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Tween>
+                              </Timeline>
+                            )}
+                          </Scene>
+                        </Controller>
                       </Grid>
-                      <Grid item></Grid>
+
+                      <Grid item md={4}>
+                        <Controller>
+                          <Scene triggerHook="onScroll" duration={1200} pin>
+                            {(progress) => (
+                              <Timeline totalProgress={progress} paused>
+                                <Tween
+                                  from={{
+                                    css: {
+                                      margin: "auto auto auto auto",
+                                      transform:
+                                        "matrix(0.86603, 0.5, -0.5, 0.86603, 250, 450)",
+                                    },
+                                    ease: "Strong.easeOut",
+                                  }}
+                                  to={{
+                                    css: {
+                                      margin: "80vh -auto auto auto",
+                                      transform:
+                                        "matrix(1, 0.0, 0.0, 1 , 450, -50)",
+                                    },
+                                    ease: "Strong.easeOut",
+                                  }}
+                                  totalProgress={progress}
+                                  paused
+                                >
+                                  <div
+                                    className={clx(styles.hpc_tablet__cover)}
+                                  >
+                                    <div
+                                      className={clx(styles.hpc_tablet__frame)}
+                                    >
+                                      <div
+                                        className={clx(
+                                          styles.hpc_phone_slide,
+                                          styles.hpc_phone_slide_next
+                                        )}
+                                      >
+                                        <img
+                                          src="/images/tablet-slide2.jpg"
+                                          width="100%"
+                                          height="100%"
+                                          alt="phone-pic"
+                                        />
+                                      </div>
+                                      <div
+                                        className={clx(
+                                          styles.hpc_phone_slide,
+                                          styles.hpc_phone_slide_current
+                                        )}
+                                      >
+                                        <img
+                                          src="/images/tablet-slide1.jpg"
+                                          width="100%"
+                                          height="100%"
+                                          alt="phone-pic"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Tween>
+                              </Timeline>
+                            )}
+                          </Scene>
+                        </Controller>
+                      </Grid>
                     </Grid>
                   </div>
 
-                  {/* <div className={clx(styles.hpc_phone__frame)}>
-                    
-                    <div className={clx(styles.hpc_phone__slide,styles.hpc_phone__slide__current)}>
-                        <Image className={clx(styles.hpc_phone__slide_current)}  src="/images/phone-slide1_.jpg" width="100%" height="100%" alt="phone-pic"/>
-                    </div>
-                
-                    <div
-                      className={clx(styles.hpc_phone__cover)} 
-                      style={{transform:`rotate(${hpc_phone_degree}deg) translateX(${hpc_phone_x}px) translateY(${hpc_phone_y}px)`}}> 
-                    </div>
-
-                </div> */}
-
-                  {/* <div className={clx(styles.hpc_phone__slide_current)} >
-                    <Image src="/images/phone-slide1_.jpg" width="348px" height="556px" alt="phone-pic"/>
-                 </div> */}
-
-                  {/* <div 
-                  className={clx(styles.hpc_tablet__cover)} 
-                  style={{transform:`rotate(${hpc_tablet_degree}deg) translateX(${hpc_tablet_x}px) translateY(${hpc_tablet_y}px)`}}> 
-                </div> */}
-
-                  <div
-                    className={clx(styles.hpc_pics_container)}
-                    style={{
-                      transform: `rotate(${hpc_pics_degree}deg) translateX(${hpc_pics_x}vw) translateY(${hpc_pics_y}vh)`,
-                    }}
-                  >
-                    <div
-                      className={clx(
-                        styles.hpc_pics,
-                        hpc_pics_bg[getCurrentSloganIndex()]
+                  <Controller>
+                    <Scene triggerHook="onScroll" duration={1200} pin>
+                      {(progress) => (
+                        <Timeline totalProgress={progress} paused>
+                          <Tween
+                            from={{
+                              css: {
+                                margin: "0vh -5vw auto auto",
+                                transform:
+                                  "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
+                              },
+                              ease: "Strong.easeOut",
+                            }}
+                            to={{
+                              css: {
+                                margin: "-50vh -40vw auto auto",
+                                transform: "matrix(1, 0.0, 0.0, 1 , 0, 0)",
+                              },
+                              ease: "Strong.easeOut",
+                            }}
+                            totalProgress={progress}
+                            paused
+                          >
+                            <div className={clx(styles.hpc_pics_container)}>
+                              <div
+                                className={clx(
+                                  styles.hpc_pics,
+                                  hpc_pics_bg[getCurrentSloganIndex()]
+                                )}
+                              >
+                                {" "}
+                              </div>
+                            </div>
+                          </Tween>
+                        </Timeline>
                       )}
-                    >
-                      {" "}
-                    </div>
-                  </div>
+                    </Scene>
+                  </Controller>
                 </Grid>
               </Grid>
             </div>
