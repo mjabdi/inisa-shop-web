@@ -13,14 +13,42 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+  isTablet,
+} from "react-device-detect";
+
 const scrollDuration = 900;
 
 const Home = () => {
   const sloganArray = [
-    { title: "فروش آنلاین محصول", bg: styles.hpc_underlined_yellow , phoneImage: "/images/phone-slide1.jpg", tabletImage: "/images/tablet-slide1.jpg"},
-    { title: "اتصال به اینستاگرام", bg: styles.hpc_underlined_magenta , phoneImage: "/images/phone-slide2.jpg", tabletImage: "/images/tablet-slide2.jpg"},
-    { title: "فروش روی وب سایت", bg: styles.hpc_underlined_green , phoneImage: "/images/phone-slide3.jpg", tabletImage: "/images/tablet-slide3.jpg"},
-    { title: "راه اندازی کسب و کار", bg: styles.hpc_underlined_indigo , phoneImage: "/images/phone-slide4.jpg", tabletImage: "/images/tablet-slide4.jpg" },
+    {
+      title: "فروش آنلاین محصول",
+      bg: styles.hpc_underlined_yellow,
+      phoneImage: "/images/phone-slide1.jpg",
+      tabletImage: "/images/tablet-slide1.jpg",
+    },
+    {
+      title: "اتصال به اینستاگرام",
+      bg: styles.hpc_underlined_magenta,
+      phoneImage: "/images/phone-slide2.jpg",
+      tabletImage: "/images/tablet-slide2.jpg",
+    },
+    {
+      title: "فروش روی وب سایت",
+      bg: styles.hpc_underlined_green,
+      phoneImage: "/images/phone-slide3.jpg",
+      tabletImage: "/images/tablet-slide3.jpg",
+    },
+    {
+      title: "راه اندازی کسب و کار",
+      bg: styles.hpc_underlined_indigo,
+      phoneImage: "/images/phone-slide4.jpg",
+      tabletImage: "/images/tablet-slide4.jpg",
+    },
   ];
 
   const hpc_pics_bg = [
@@ -29,8 +57,6 @@ const Home = () => {
     styles.hpc_pics_bg_green,
     styles.hpc_pics_bg_indigo,
   ];
-
-  
 
   const [sloganArrayIndex, setSloganArrayIndex] = React.useState(0);
   const [sloganIndex, setSloganIndex] = React.useState(0);
@@ -52,25 +78,37 @@ const Home = () => {
     clx(styles.hpc_phone_slide)
   );
 
-  const [currentPhoneImage, setCurrentPhoneImage] = React.useState(sloganArray[0].phoneImage)
-  const [nextPhoneImage, setNextPhoneImage] = React.useState(sloganArray[1].phoneImage)
+  const [currentPhoneImage, setCurrentPhoneImage] = React.useState(
+    sloganArray[0].phoneImage
+  );
+  const [nextPhoneImage, setNextPhoneImage] = React.useState(
+    sloganArray[1].phoneImage
+  );
 
-  
-  const [currentTabletImage, setCurrentTabletImage] = React.useState(sloganArray[0].tabletImage)
-  const [nextTabletImage, setNextTabletImage] = React.useState(sloganArray[1].tabletImage)
+  const [currentTabletImage, setCurrentTabletImage] = React.useState(
+    sloganArray[0].tabletImage
+  );
+  const [nextTabletImage, setNextTabletImage] = React.useState(
+    sloganArray[1].tabletImage
+  );
 
-  const [phoneCoverClass, setPhoneCoverClass] = React.useState(clx(styles.hpc_phone__cover))
-  const [tabletCoverClass, setTabletCoverClass] = React.useState(clx(styles.hpc_tablet__cover))
-  const [picsContainerClass, setPicsContainerClass] = React.useState(styles.hpc_pics_container)
+  const [phoneCoverClass, setPhoneCoverClass] = React.useState(
+    clx(styles.hpc_phone__cover)
+  );
+  const [tabletCoverClass, setTabletCoverClass] = React.useState(
+    clx(styles.hpc_tablet__cover)
+  );
+  const [picsContainerClass, setPicsContainerClass] = React.useState(
+    styles.hpc_pics_container
+  );
 
-  const [slideTriggered, setSlideTriggered] = React.useState(false)
- 
+  const [slideTriggered, setSlideTriggered] = React.useState(false);
+
   const [scrollTop, setScrollTop] = React.useState(0);
 
   const [windowWidth, setWindowWidth] = React.useState(-1);
 
   React.useEffect(() => {
-
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
     window.addEventListener("load", handleLoad);
@@ -83,7 +121,7 @@ const Home = () => {
           setSloganArrayIndex((prev) =>
             prev < sloganArray.length - 1 ? prev + 1 : 0
           );
-          setSlideTriggered(true)
+          setSlideTriggered(true);
           return 0;
         }
       });
@@ -101,25 +139,36 @@ const Home = () => {
       );
     }, 500);
 
-
     setTimeout(() => {
       setPhoneCoverClass(
-        clx(styles.hpc_phone__cover, styles.hpc_phone__cover_load, styles.hpc_animate_delay_5)
-      )
+        clx(
+          styles.hpc_phone__cover,
+          styles.hpc_phone__cover_load,
+          styles.hpc_animate_delay_5
+        )
+      );
     }, 2000);
 
     setTimeout(() => {
       setPicsContainerClass(
-        clx(styles.hpc_pics_container, styles.hpc_pics_container_load, styles.hpc_animate_delay_1)
-      )
+        clx(
+          styles.hpc_pics_container,
+          styles.hpc_pics_container_load,
+          styles.hpc_animate_delay_1
+        )
+      );
     }, 2400);
 
     setTimeout(() => {
       setTabletCoverClass(
-        clx(styles.hpc_tablet__cover, styles.hpc_tablet__cover_load, styles.hpc_animate_delay_5)
-      )
+        clx(
+          styles.hpc_tablet__cover,
+          styles.hpc_tablet__cover_load,
+          styles.hpc_animate_delay_5
+        )
+      );
     }, 2800);
-    
+
     return () => {
       clearInterval(sloganTimer);
       window.removeEventListener("scroll", handleScroll);
@@ -128,48 +177,42 @@ const Home = () => {
     };
   }, []);
 
-
   React.useEffect(() => {
+    if (slideTriggered) {
+      ///************* Slide Phone Image */
 
-    if (slideTriggered)
-    {
+      setTimeout(() => {
+        setPhoneCurrentClass(clx(styles.hpc_phone_slide));
+        setPhoneNextClass(clx(styles.hpc_phone_slide));
+      }, 50);
 
-    ///************* Slide Phone Image */
+      setTimeout(() => {
+        setPhoneCurrentClass(
+          clx(styles.hpc_phone_slide, styles.hpc_phone_slide_current)
+        );
+        setPhoneNextClass(
+          clx(styles.hpc_phone_slide, styles.hpc_phone_slide_next)
+        );
+      }, 100);
 
+      ///************* end Slide Phone Image */
 
-    setTimeout(() => {
-      setPhoneCurrentClass( clx(styles.hpc_phone_slide))
-      setPhoneNextClass( clx(styles.hpc_phone_slide))    
-    }, 50);
+      setTimeout(() => {
+        setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
+        setNextPhoneImage(
+          sloganArrayIndex < sloganArray.length - 1
+            ? sloganArray[sloganArrayIndex + 1].phoneImage
+            : sloganArray[0].phoneImage
+        );
 
-    setTimeout(() => {
-      setPhoneCurrentClass( clx(styles.hpc_phone_slide, styles.hpc_phone_slide_current))
-      setPhoneNextClass( clx(styles.hpc_phone_slide, styles.hpc_phone_slide_next))
-    }, 100);
-
-    ///************* end Slide Phone Image */
-
-    setTimeout(() => {
-      setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
-      setNextPhoneImage(
-        sloganArrayIndex < sloganArray.length - 1
-          ? sloganArray[sloganArrayIndex + 1].phoneImage
-          : sloganArray[0].phoneImage
-      );
-
-      setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
-      setNextTabletImage(
-        sloganArrayIndex < sloganArray.length - 1
-          ? sloganArray[sloganArrayIndex + 1].tabletImage
-          : sloganArray[0].tabletImage
-      );
-    }, 800);
-
+        setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
+        setNextTabletImage(
+          sloganArrayIndex < sloganArray.length - 1
+            ? sloganArray[sloganArrayIndex + 1].tabletImage
+            : sloganArray[0].tabletImage
+        );
+      }, 800);
     }
-     
-
-
-
   }, [sloganArrayIndex]);
 
   const handleLoad = (event) => {
@@ -213,457 +256,473 @@ const Home = () => {
   };
 
   const getCornerOffset = () => {
-    let y = -(((windowWidth) / 500) * 80);
+    let y = -((windowWidth / 500) * 80);
     return y;
   };
 
- 
-
   return (
     <>
-
- {windowWidth <= 0 && (
-     <React.Fragment>
-     Device Not Supported
-   </React.Fragment>
- )}   
-
-{windowWidth > 0 && windowWidth < 1024 && (
-  <React.Fragment>
-    you are on mobile screen size: {windowWidth}px
-  </React.Fragment>
-)}
-
-
-{windowWidth >= 1024 && (
-  <React.Fragment>
-
       <Head>
-        <title>{'اینیساشاپ'}</title>
+        <title>{"اینیساشاپ"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppBar/>
+      <AppBar />
 
-      <div className={styles.container}>
-        <Grid
-          container
-          id="sellerhome"
-          direction="column"
-          justify="center"
-          alignItems="stretch"
-        >
-          <Grid item xs={12} id="1">
-            <div className={styles.grid1}>
-              <Grid
-                container
-                id="sec1"
-                direction="row-reverse"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item id="sec11" xs={12} md={4}>
-                  <div className={styles.sec11}>
-                    <Grid
-                      container
-                      direction="row"
-                      justify="center"
-                      alignItems="stretch"
-                    >
-                      <div style={{ paddingTop: "30%" }}>
-                        <Grid item>
-                          <h1 className={hpcAnimationClasses}>
-                            <div>همین حالا آغاز کنید</div>
-                            <div>
-                              <span
-                                className={clx(
-                                  styles.hpc_underlined,
-                                  getCurrentSlogan().bg
-                                )}
+      {isBrowser && windowWidth < 1024 && (
+        <React.Fragment>
+          {" "}
+          <div
+            style={{
+              minHeight: "100vh",
+              paddingTop: "40%",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            {" "}
+            Small Screen Size{" "}
+          </div>
+        </React.Fragment>
+      )}
+
+      {isMobile && (
+        <React.Fragment>
+          <div
+            style={{
+              minHeight: "100vh",
+              paddingTop: "40%",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            you are on mobile device size: {windowWidth}px
+          </div>
+        </React.Fragment>
+      )}
+
+      {isTablet && (
+        <React.Fragment>
+          <div
+            style={{
+              minHeight: "100vh",
+              paddingTop: "40%",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            you are on Tablet device size: {windowWidth}px
+          </div>
+        </React.Fragment>
+      )}
+
+      {isBrowser && windowWidth >= 1024 && (
+        <React.Fragment>
+          <div className={styles.container}>
+            <Grid
+              container
+              id="sellerhome"
+              direction="column"
+              justify="center"
+              alignItems="stretch"
+            >
+              <Grid item xs={12} id="1">
+                <div className={styles.grid1}>
+                  <Grid
+                    container
+                    id="sec1"
+                    direction="row-reverse"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <Grid item id="sec11" xs={12} md={4}>
+                      <div className={styles.sec11}>
+                        <Grid
+                          container
+                          direction="row"
+                          justify="center"
+                          alignItems="stretch"
+                        >
+                          <div style={{ paddingTop: "30%" }}>
+                            <Grid item>
+                              <h1 className={hpcAnimationClasses}>
+                                <div>همین حالا آغاز کنید</div>
+                                <div>
+                                  <span
+                                    className={clx(
+                                      styles.hpc_underlined,
+                                      getCurrentSlogan().bg
+                                    )}
+                                  >
+                                    {getSloganPart()}
+                                  </span>
+                                  <span
+                                    className={clx(
+                                      styles.hpc_caret,
+                                      styles.hpc_caret_show,
+                                      styles.hpc_caret_blink
+                                    )}
+                                  ></span>
+                                </div>
+                              </h1>
+                              <p
+                                className={hpcAnimationClasses2}
+                                style={{ textAlign: "justify" }}
                               >
-                                {getSloganPart()}
-                              </span>
-                              <span
-                                className={clx(
-                                  styles.hpc_caret,
-                                  styles.hpc_caret_show,
-                                  styles.hpc_caret_blink
-                                )}
-                              ></span>
-                            </div>
-                          </h1>
-                          <p className={hpcAnimationClasses2} style={{textAlign:"justify"}}>
-                            با ما فروش آنلاین را تجربه کنید. با اینیسا، فروشگاه
-                            رایگان خود را برای همیشه داشته باشید. یکبار ثبت نام
-                            کنید و همیشه استفاده کنید.
-                          </p>
-                          <div className={hpcAnimationClasses3}>
-                            <Button
-                              style={{
-                                backgroundColor: "#111111",
-                                color: "#fff",
-                                width: "250px",
-                                padding: "10px",
-                                // marginRight: "250px",
-                                marginTop: "20px",
-                                fontSize: "1rem",
-                              }}
-                              type="button"
-                              variant="contained"
-                            >
-                              رایگان فروشگاه بساز
-                            </Button>
+                                با ما فروش آنلاین را تجربه کنید. با اینیسا،
+                                فروشگاه رایگان خود را برای همیشه داشته باشید.
+                                یکبار ثبت نام کنید و همیشه استفاده کنید.
+                              </p>
+                              <div className={hpcAnimationClasses3}>
+                                <Button
+                                  style={{
+                                    backgroundColor: "#111111",
+                                    color: "#fff",
+                                    width: "250px",
+                                    padding: "10px",
+                                    // marginRight: "250px",
+                                    marginTop: "20px",
+                                    fontSize: "1rem",
+                                  }}
+                                  type="button"
+                                  variant="contained"
+                                >
+                                  رایگان فروشگاه بساز
+                                </Button>
+                              </div>
+                            </Grid>
                           </div>
                         </Grid>
                       </div>
                     </Grid>
+
+                    {windowWidth > 0 && (
+                      <Grid item id="sec12" xs={12} md={7}>
+                        <div className={styles.phone_container}>
+                          <Grid
+                            container
+                            direction="row-reverse"
+                            justify="flex-end"
+                            alignItems="flex-start"
+                          >
+                            <Grid item md={8}>
+                              <Controller>
+                                <Scene
+                                  // triggerHook="onScroll"
+                                  triggerElement="#sec12"
+                                  duration={scrollDuration}
+                                  //pin
+                                >
+                                  {(progress) => (
+                                    <Timeline totalProgress={progress} paused>
+                                      <Tween
+                                        from={{
+                                          css: {
+                                            margin: "10vh 25vw auto 20vw",
+                                            transform:
+                                              "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
+                                          },
+                                          ease: "Strong.easeOut",
+                                        }}
+                                        to={{
+                                          css: {
+                                            margin: "105vh 10vw auto 20vw",
+                                            transform:
+                                              "matrix(1, 0.0, 0.0, 1 , 0, 0)",
+                                          },
+                                          ease: "Strong.easeOut",
+                                        }}
+                                        totalProgress={progress}
+                                        paused
+                                      >
+                                        <div className={phoneCoverClass}>
+                                          <div
+                                            className={clx(
+                                              styles.hpc_phone__frame
+                                            )}
+                                          >
+                                            <div className={phoneNextClass}>
+                                              <img
+                                                src={nextPhoneImage}
+                                                width="100%"
+                                                height="100%"
+                                                alt="phone-pic"
+                                              />
+                                            </div>
+                                            <div className={phoneCurrentClass}>
+                                              <img
+                                                src={currentPhoneImage}
+                                                width="100%"
+                                                height="100%"
+                                                alt="phone-pic"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </Tween>
+                                    </Timeline>
+                                  )}
+                                </Scene>
+                              </Controller>
+                            </Grid>
+
+                            <Grid item md={4}>
+                              <Controller>
+                                <Scene
+                                  triggerElement="#sec12"
+                                  // triggerHook="onScroll"
+                                  duration={scrollDuration}
+                                  //pin
+                                >
+                                  {(progress) => (
+                                    <Timeline totalProgress={progress} paused>
+                                      <Tween
+                                        from={{
+                                          css: {
+                                            margin: "10vh auto auto auto",
+                                            transform: `matrix(0.86603, 0.5, -0.5, 0.86603, ${getTabletXOffset1()}  ,  ${getTabletYOffset1()})`,
+                                          },
+                                          ease: "Strong.easeOut",
+                                        }}
+                                        to={{
+                                          css: {
+                                            margin: "105vh auto auto auto",
+                                            transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
+                                          },
+                                          ease: "Strong.easeOut",
+                                        }}
+                                        totalProgress={progress}
+                                        paused
+                                      >
+                                        <div className={tabletCoverClass}>
+                                          <div
+                                            className={clx(
+                                              styles.hpc_tablet__frame
+                                            )}
+                                          >
+                                            <div className={phoneNextClass}>
+                                              <img
+                                                src={nextTabletImage}
+                                                width="100%"
+                                                height="100%"
+                                                alt="phone-pic"
+                                              />
+                                            </div>
+                                            <div className={phoneCurrentClass}>
+                                              <img
+                                                src={currentTabletImage}
+                                                width="100%"
+                                                height="100%"
+                                                alt="phone-pic"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </Tween>
+                                    </Timeline>
+                                  )}
+                                </Scene>
+                              </Controller>
+                            </Grid>
+                          </Grid>
+                        </div>
+
+                        <Controller>
+                          <Scene
+                            triggerElement="#sec12"
+                            //  triggerHook="onScroll"
+                            duration={1200}
+                            //pin
+                          >
+                            {(progress) => (
+                              <Timeline totalProgress={progress} paused>
+                                <Tween
+                                  from={{
+                                    css: {
+                                      margin: "0vh -5vw auto auto",
+                                      transform:
+                                        "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
+                                    },
+                                    ease: "Strong.easeOut",
+                                  }}
+                                  to={{
+                                    css: {
+                                      margin: "-40vh -35vw auto auto",
+                                      transform: "matrix(1, 0, 0, 1 , 0, 0)",
+                                    },
+                                    ease: "Strong.easeOut",
+                                  }}
+                                  totalProgress={progress}
+                                  paused
+                                >
+                                  <div className={picsContainerClass}>
+                                    <div
+                                      className={clx(
+                                        styles.hpc_pics,
+                                        hpc_pics_bg[getCurrentSloganIndex()]
+                                      )}
+                                    >
+                                      {" "}
+                                    </div>
+                                  </div>
+                                </Tween>
+                              </Timeline>
+                            )}
+                          </Scene>
+                        </Controller>
+                      </Grid>
+                    )}
+                  </Grid>
+                </div>
+              </Grid>
+
+              {windowWidth > 0 && (
+                <Grid item xs={12} id="2">
+                  <div className={styles.grid2}>
+                    <Grid
+                      container
+                      id="sec2"
+                      direction="row-reverse"
+                      justify="flex-start"
+                      alignItems="center"
+                    >
+                      <Grid item id="sec21" xs={12} md={6}>
+                        <div className={styles.sec21}>
+                          <Controller>
+                            <Scene
+                              triggerElement="#sec12"
+                              // triggerHook="onScroll"
+                              duration={scrollDuration}
+                              //pin
+                            >
+                              {(progress) => (
+                                <Timeline totalProgress={progress} paused>
+                                  <Tween
+                                    from={{
+                                      css: {
+                                        // margin: "0vh -5vw auto auto",
+
+                                        transform: `matrix(0.86603, 0.5, -0.5, 0.86603, 0, ${getCornerOffset()})`,
+                                      },
+                                      ease: "Strong.easeOut",
+                                    }}
+                                    to={{
+                                      css: {
+                                        transform: "matrix(1, 0, 0, 1, 0, 0)",
+                                      },
+                                      ease: "Strong.easeOut",
+                                    }}
+                                    totalProgress={progress}
+                                    paused
+                                  >
+                                    <div className={clx(styles.hpc_sec21)}>
+                                      {" "}
+                                    </div>
+                                  </Tween>
+                                </Timeline>
+                              )}
+                            </Scene>
+                          </Controller>
+                        </div>
+                      </Grid>
+                    </Grid>
                   </div>
                 </Grid>
-                
+              )}
 
-                {windowWidth > 0 && (
-                  <Grid item id="sec12" xs={12} md={7}>
-                    <div className={styles.phone_container}>
-                      <Grid
-                        container
-                        direction="row-reverse"
-                        justify="flex-end"
-                        alignItems="flex-start"
-                      >
-                        <Grid item md={8}>
-                          <Controller>
-                            <Scene
-                              // triggerHook="onScroll"
-                              triggerElement="#sec12"
-                              duration={scrollDuration}
-                              //pin
-                            >
-                              {(progress) => (
-                                <Timeline totalProgress={progress} paused>
-                                  <Tween
-                                    from={{
-                                      css: {
-                                        margin: "10vh 25vw auto 20vw",
-                                        transform:
-                                          "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
-                                      },
-                                      ease: "Strong.easeOut",
-                                    }}
-                                    to={{
-                                      css: {
-                                        margin: "105vh 10vw auto 20vw",
-                                        transform:
-                                          "matrix(1, 0.0, 0.0, 1 , 0, 0)",
-                                      },
-                                      ease: "Strong.easeOut",
-                                    }}
-                                    totalProgress={progress}
-                                    paused
-                                  >
-                                    <div
-                                      className={phoneCoverClass}
-                                    >
-                                      <div
-                                        className={clx(styles.hpc_phone__frame)}
-                                      >
-                                        <div
-                                          className={phoneNextClass}
-                                        >
-                                          <img
-                                            src={nextPhoneImage}
-                                            width="100%"
-                                            height="100%"
-                                            alt="phone-pic"
-                                          />
-                                        </div>
-                                        <div
-                                          className={phoneCurrentClass}
-                                        >
-                                          <img
-                                            src={currentPhoneImage}
-                                            width="100%"
-                                            height="100%"
-                                            alt="phone-pic"
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </Tween>
-                                </Timeline>
-                              )}
-                            </Scene>
-                          </Controller>
-                        </Grid>
-
-                        <Grid item md={4}>
-                          <Controller>
-                            <Scene
-                              triggerElement="#sec12"
-                              // triggerHook="onScroll"
-                              duration={scrollDuration}
-                              //pin
-                            >
-                              {(progress) => (
-                                       
-                                <Timeline totalProgress={progress} paused>
-                                  <Tween
-                                    from={{
-                                      css: {
-                                        margin: "10vh auto auto auto",
-                                        transform: `matrix(0.86603, 0.5, -0.5, 0.86603, ${getTabletXOffset1()}  ,  ${getTabletYOffset1()})`,
-                                      },
-                                      ease: "Strong.easeOut",
-                                    }}
-                                    to={{
-                                      css: {
-                                        margin: "105vh auto auto auto",
-                                        transform: `matrix(1, 0.0, 0.0, 1 , ${getTabletXOffset2()}, -50)`,
-                                      },
-                                      ease: "Strong.easeOut",
-                                    }}
-                                    totalProgress={progress}
-                                    paused
-                                  >
-                                    <div
-                                      className={tabletCoverClass}
-                                    >
-                                      <div
-                                        className={clx(
-                                          styles.hpc_tablet__frame
-                                        )}
-                                      >
-                                        <div
-                                          className={phoneNextClass}
-                                        >
-                                          <img
-                                            src={nextTabletImage}
-                                            width="100%"
-                                            height="100%"
-                                            alt="phone-pic"
-                                          />
-                                        </div>
-                                        <div
-                                          className={phoneCurrentClass}
-                                        >
-                                          <img
-                                            src={currentTabletImage}
-                                            width="100%"
-                                            height="100%"
-                                            alt="phone-pic"
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </Tween>
-                                </Timeline>
-                              
-                              )}
-                            </Scene>
-                          </Controller>
-                        </Grid>
-                      </Grid>
-                    </div>
-
-                    <Controller>
-                      <Scene
-                        triggerElement="#sec12"
-
-                      //  triggerHook="onScroll"
-                        duration={1200} 
-                        //pin
-                        >
-                        {(progress) => (
-                         
-                          <Timeline totalProgress={progress} paused>
-                            <Tween
-                              from={{
-                                css: {
-                                  margin: "0vh -5vw auto auto",
-                                  transform:
-                                    "matrix(0.86603, 0.5, -0.5, 0.86603, 0, 0)",
-                                },
-                                ease: "Strong.easeOut",
-                              }}
-                              to={{
-                                css: {
-                                  margin: "-40vh -35vw auto auto",
-                                  transform: "matrix(1, 0, 0, 1 , 0, 0)",
-                                },
-                                ease: "Strong.easeOut",
-                              }}
-                              totalProgress={progress}
-                              paused
-                            >
-                              <div className={picsContainerClass}>
-                                <div
-                                  className={clx(
-                                    styles.hpc_pics,
-                                    hpc_pics_bg[getCurrentSloganIndex()]
-                                  )}
-                                >
-                                  {" "}
-                                </div>
-                              </div>
-                            </Tween>
-                          </Timeline>
-                         
-                        )}
-                      </Scene>
-                    </Controller>
+              <Grid item xs={12} md={12} id="3">
+                <div className={styles.grid3}>
+                  <Grid
+                    container
+                    id="sec3"
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <Grid item id="sec31" xs={12} md={6}>
+                      <div className={styles.sec31}></div>
+                    </Grid>
+                    <Grid item id="sec32" xs={12} md={6}>
+                      <div className={styles.sec32}></div>
+                    </Grid>
                   </Grid>
-                )}
+                </div>
               </Grid>
-            </div>
-          </Grid>
-
-          {windowWidth > 0 && (
-            <Grid item xs={12} id="2">
-              <div className={styles.grid2}>
-                <Grid
-                  container
-                  id="sec2"
-                  direction="row-reverse"
-                  justify="flex-start"
-                  alignItems="center"
-                >
-                  <Grid item id="sec21" xs={12} md={6}>
-                    <div className={styles.sec21}>
-                      <Controller>
-                        <Scene
-                          triggerElement="#sec12"
-                          // triggerHook="onScroll"
-                          duration={scrollDuration}
-                          //pin
-                        >
-                          {(progress) => (
-                           
-                            <Timeline totalProgress={progress} paused>
-                              <Tween
-                                from={{
-                                  css: {
-                                    // margin: "0vh -5vw auto auto",
-
-                                    transform: `matrix(0.86603, 0.5, -0.5, 0.86603, 0, ${getCornerOffset()})`,
-                                  },
-                                  ease: "Strong.easeOut",
-                                }}
-                                to={{
-                                  css: {
-                                    transform: "matrix(1, 0, 0, 1, 0, 0)",
-                                  },
-                                  ease: "Strong.easeOut",
-                                }}
-                                totalProgress={progress}
-                                paused
-                              >
-                                <div className={clx(styles.hpc_sec21)}> </div>
-                              </Tween>
-                            </Timeline>
-                           
-                          )}
-                        </Scene>
-                      </Controller>
-                    </div>
+              <Grid item xs={12} id="4">
+                <div className={styles.grid4}>
+                  <Grid
+                    container
+                    id="sec4"
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <Grid item id="sec41" xs={12} md={6}>
+                      <div className={styles.sec41}></div>
+                    </Grid>
+                    <Grid item id="sec42" xs={12} md={6}>
+                      <div className={styles.sec42}></div>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </div>
+                </div>
+              </Grid>
+              <Grid item xs={12} id="5">
+                <div className={styles.grid5}>
+                  <Grid
+                    container
+                    id="sec5"
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <Grid item id="sec51" xs={12} md={6}>
+                      <div className={styles.sec51}></div>
+                    </Grid>
+                    <Grid item id="sec52" xs={12} md={6}>
+                      <div className={styles.sec52}></div>
+                    </Grid>
+                  </Grid>
+                </div>
+              </Grid>
+              <Grid item xs={12} id="6">
+                <div className={styles.grid6}></div>
+              </Grid>
+              <Grid item xs={12} id="7">
+                <div className={styles.grid7}>
+                  <Grid
+                    container
+                    id="sec7"
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <Grid item id="sec71" xs={12} md={4}>
+                      <div className={styles.sec71}></div>
+                    </Grid>
+                    <Grid item id="sec72" xs={12} md={4}>
+                      <div className={styles.sec72}></div>
+                    </Grid>
+                    <Grid item id="sec73" xs={12} md={4}>
+                      <div className={styles.sec73}></div>
+                    </Grid>
+                  </Grid>
+                </div>
+              </Grid>
+              <Grid item xs={12} id="8">
+                <div className={styles.grid8}></div>
+              </Grid>
             </Grid>
-          )}
+          </div>
 
-          <Grid item xs={12} md={12} id="3">
-            <div className={styles.grid3}>
-              <Grid
-                container
-                id="sec3"
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item id="sec31" xs={12} md={6}>
-                  <div className={styles.sec31}></div>
-                </Grid>
-                <Grid item id="sec32" xs={12} md={6}>
-                  <div className={styles.sec32}></div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
-          <Grid item xs={12} id="4">
-            <div className={styles.grid4}>
-              <Grid
-                container
-                id="sec4"
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item id="sec41" xs={12} md={6}>
-                  <div className={styles.sec41}></div>
-                </Grid>
-                <Grid item id="sec42" xs={12} md={6}>
-                  <div className={styles.sec42}></div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
-          <Grid item xs={12} id="5">
-            <div className={styles.grid5}>
-              <Grid
-                container
-                id="sec5"
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item id="sec51" xs={12} md={6}>
-                  <div className={styles.sec51}></div>
-                </Grid>
-                <Grid item id="sec52" xs={12} md={6}>
-                  <div className={styles.sec52}></div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
-          <Grid item xs={12} id="6">
-            <div className={styles.grid6}></div>
-          </Grid>
-          <Grid item xs={12} id="7">
-            <div className={styles.grid7}>
-              <Grid
-                container
-                id="sec7"
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item id="sec71" xs={12} md={4}>
-                  <div className={styles.sec71}></div>
-                </Grid>
-                <Grid item id="sec72" xs={12} md={4}>
-                  <div className={styles.sec72}></div>
-                </Grid>
-                <Grid item id="sec73" xs={12} md={4}>
-                  <div className={styles.sec73}></div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
-          <Grid item xs={12} id="8">
-            <div className={styles.grid8}></div>
-          </Grid>
-        </Grid>
-      </div>
-
-      <footer className={styles.footer}>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          Powered by inisashop.com
-        </a>
-      </footer>
-
-      </React.Fragment> )}
+          <footer className={styles.footer}>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              Powered by inisashop.com
+            </a>
+          </footer>
+        </React.Fragment>
+      )}
     </>
   );
 };
-
 
 export default Home;
