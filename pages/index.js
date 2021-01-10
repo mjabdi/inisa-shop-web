@@ -30,6 +30,8 @@ const Home = () => {
     styles.hpc_pics_bg_indigo,
   ];
 
+  
+
   const [sloganArrayIndex, setSloganArrayIndex] = React.useState(0);
   const [sloganIndex, setSloganIndex] = React.useState(0);
   const [hpcAnimationClasses, setHpcAnimationClasses] = React.useState(
@@ -220,7 +222,20 @@ const Home = () => {
   return (
     <>
 
-{windowWidth > 0 && (
+ {windowWidth <= 0 && (
+     <React.Fragment>
+     Device Not Supported
+   </React.Fragment>
+ )}   
+
+{windowWidth > 0 && windowWidth <= 1024 && (
+  <React.Fragment>
+    you are on mobile
+  </React.Fragment>
+)}
+
+
+{windowWidth > 1024 && (
   <React.Fragment>
 
       <Head>
@@ -277,7 +292,7 @@ const Home = () => {
                               ></span>
                             </div>
                           </h1>
-                          <p className={hpcAnimationClasses2}>
+                          <p className={hpcAnimationClasses2} style={{textAlign:"justify"}}>
                             با ما فروش آنلاین را تجربه کنید. با اینیسا، فروشگاه
                             رایگان خود را برای همیشه داشته باشید. یکبار ثبت نام
                             کنید و همیشه استفاده کنید.
@@ -287,9 +302,9 @@ const Home = () => {
                               style={{
                                 backgroundColor: "#111111",
                                 color: "#fff",
-                                width: "200px",
+                                width: "250px",
                                 padding: "10px",
-                                marginRight: "250px",
+                                // marginRight: "250px",
                                 marginTop: "20px",
                                 fontSize: "1rem",
                               }}

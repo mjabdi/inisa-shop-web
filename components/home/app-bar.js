@@ -89,7 +89,7 @@ export default function MyAppBar(props) {
                 >
                   
                   <Grid item id="logoside0" >
-                    <div style={{ width: "30px" }}></div>
+                    <div style={{ width: "0px" }}></div>
                   </Grid>
 
                   <Grid item id="logoside1" >
