@@ -314,11 +314,11 @@ const Home = () => {
                           <Controller>
                             <Scene
                               // triggerHook="onScroll"
+                              triggerElement="#sec12"
                               duration={scrollDuration}
-                              // pin
+                              //pin
                             >
                               {(progress) => (
-                                <div>
                                 <Timeline totalProgress={progress} paused>
                                   <Tween
                                     from={{
@@ -370,7 +370,6 @@ const Home = () => {
                                     </div>
                                   </Tween>
                                 </Timeline>
-                                </div>
                               )}
                             </Scene>
                           </Controller>
@@ -379,12 +378,13 @@ const Home = () => {
                         <Grid item md={4}>
                           <Controller>
                             <Scene
+                              triggerElement="#sec12"
                               // triggerHook="onScroll"
                               duration={scrollDuration}
-                              // pin
+                              //pin
                             >
                               {(progress) => (
-                                <div>                              
+                                       
                                 <Timeline totalProgress={progress} paused>
                                   <Tween
                                     from={{
@@ -436,7 +436,7 @@ const Home = () => {
                                     </div>
                                   </Tween>
                                 </Timeline>
-                                </div>
+                              
                               )}
                             </Scene>
                           </Controller>
@@ -446,12 +446,14 @@ const Home = () => {
 
                     <Controller>
                       <Scene
+                        triggerElement="#sec12"
+
                       //  triggerHook="onScroll"
                         duration={1200} 
-                        // pin
+                        //pin
                         >
                         {(progress) => (
-                          <div>
+                         
                           <Timeline totalProgress={progress} paused>
                             <Tween
                               from={{
@@ -484,7 +486,7 @@ const Home = () => {
                               </div>
                             </Tween>
                           </Timeline>
-                          </div>
+                         
                         )}
                       </Scene>
                     </Controller>
@@ -508,12 +510,13 @@ const Home = () => {
                     <div className={styles.sec21}>
                       <Controller>
                         <Scene
+                          triggerElement="#sec12"
                           // triggerHook="onScroll"
                           duration={scrollDuration}
-                          // pin
+                          //pin
                         >
                           {(progress) => (
-                            <div>
+                           
                             <Timeline totalProgress={progress} paused>
                               <Tween
                                 from={{
@@ -536,7 +539,7 @@ const Home = () => {
                                 <div className={clx(styles.hpc_sec21)}> </div>
                               </Tween>
                             </Timeline>
-                            </div>
+                           
                           )}
                         </Scene>
                       </Controller>
