@@ -1,15 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
-    static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx)
-        // locale is in ctx.locale
-
-        return { ...initialProps, locale: 'fa' }
-    }
-   
+ 
     render = () => (
-        <Html dir={this.props.locale === 'fa' ? 'rtl': 'ltr'} lang='en' >
+        <Html dir='rtl' lang='en' >
             <Head>
                 <link
                     rel="preload"

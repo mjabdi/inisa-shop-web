@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import AppBar from "../components/home/app-bar";
-import { i18n, withTranslation } from "../i18n";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Image from "next/image";
@@ -16,7 +15,7 @@ import { Tween, Timeline } from "react-gsap";
 
 const scrollDuration = 900;
 
-const Home = ({ t }) => {
+const Home = () => {
   const sloganArray = [
     { title: "فروش آنلاین محصول", bg: styles.hpc_underlined_yellow , phoneImage: "/images/phone-slide1.jpg", tabletImage: "/images/tablet-slide1.jpg"},
     { title: "اتصال به اینستاگرام", bg: styles.hpc_underlined_magenta , phoneImage: "/images/phone-slide2.jpg", tabletImage: "/images/tablet-slide2.jpg"},
@@ -69,8 +68,6 @@ const Home = ({ t }) => {
   const [windowWidth, setWindowWidth] = React.useState(0);
 
   React.useEffect(() => {
-    i18n.changeLanguage("fa");
-
     const sloganTimer = setInterval(() => {
       setSloganIndex((prev) => {
         if (prev < sloganArray[sloganArrayIndex].title.length * 5) {
@@ -224,11 +221,11 @@ const Home = ({ t }) => {
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
+        <title>{'اینیساشاپ'}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppBar t={t} />
+      <AppBar/>
 
       <div className={styles.container}>
         <Grid
@@ -317,12 +314,13 @@ const Home = ({ t }) => {
                         <Grid item md={8}>
                           <Controller>
                             <Scene
-                              triggerHook="onScroll"
+                              // triggerHook="onScroll"
                               duration={scrollDuration}
-                              pin
+                              // pin
                             >
                               {(progress) => (
                                 <Timeline totalProgress={progress} paused>
+                                  <div>
                                   <Tween
                                     from={{
                                       css: {
@@ -372,6 +370,7 @@ const Home = ({ t }) => {
                                       </div>
                                     </div>
                                   </Tween>
+                                  </div>
                                 </Timeline>
                               )}
                             </Scene>
@@ -381,12 +380,13 @@ const Home = ({ t }) => {
                         <Grid item md={4}>
                           <Controller>
                             <Scene
-                              triggerHook="onScroll"
+                              // triggerHook="onScroll"
                               duration={scrollDuration}
-                              pin
+                              // pin
                             >
                               {(progress) => (
                                 <Timeline totalProgress={progress} paused>
+                                  <div>
                                   <Tween
                                     from={{
                                       css: {
@@ -436,6 +436,7 @@ const Home = ({ t }) => {
                                       </div>
                                     </div>
                                   </Tween>
+                                  </div>
                                 </Timeline>
                               )}
                             </Scene>
@@ -445,9 +446,14 @@ const Home = ({ t }) => {
                     </div>
 
                     <Controller>
-                      <Scene triggerHook="onScroll" duration={1200} pin>
+                      <Scene
+                      //  triggerHook="onScroll"
+                        duration={1200} 
+                        // pin
+                        >
                         {(progress) => (
                           <Timeline totalProgress={progress} paused>
+                            <div>
                             <Tween
                               from={{
                                 css: {
@@ -478,6 +484,7 @@ const Home = ({ t }) => {
                                 </div>
                               </div>
                             </Tween>
+                            </div>
                           </Timeline>
                         )}
                       </Scene>
@@ -502,12 +509,13 @@ const Home = ({ t }) => {
                     <div className={styles.sec21}>
                       <Controller>
                         <Scene
-                          triggerHook="onScroll"
+                          // triggerHook="onScroll"
                           duration={scrollDuration}
-                          pin
+                          // pin
                         >
                           {(progress) => (
                             <Timeline totalProgress={progress} paused>
+                              <div>
                               <Tween
                                 from={{
                                   css: {
@@ -528,6 +536,7 @@ const Home = ({ t }) => {
                               >
                                 <div className={clx(styles.hpc_sec21)}> </div>
                               </Tween>
+                              </div>
                             </Timeline>
                           )}
                         </Scene>
@@ -632,12 +641,5 @@ const Home = ({ t }) => {
   );
 };
 
-Home.getInitialProps = async () => ({
-  namespacesRequired: ["common"],
-});
 
-Home.propTypes = {
-  t: PropTypes.func.isRequired,
-};
-
-export default withTranslation("common")(Home);
+export default Home;

@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import styles from './app-bar.module.css';
-import { i18n, Link, withTranslation } from '../../i18n'
 import PropTypes from 'prop-types'
 import { useScrollTrigger } from '@material-ui/core';
 import React from 'react';
@@ -65,7 +64,7 @@ ChangeOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function MyAppBar({ t, ...props }) {
+export default function MyAppBar(props) {
   return (
 
     <div className={styles.root}>
@@ -179,13 +178,3 @@ export default function MyAppBar({ t, ...props }) {
     </div>
   );
 }
-
-// MyAppBar.getInitialProps = async () => ({
-//   namespacesRequired: ['common'],
-// })
-
-// MyAppBar.propTypes = {
-//   t: PropTypes.func.isRequired,
-// }
-
-// export default withTranslation('common')(MyAppBar)
