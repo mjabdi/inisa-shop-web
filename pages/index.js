@@ -230,7 +230,7 @@ const Home = () => {
 
 {windowWidth > 0 && windowWidth <= 1024 && (
   <React.Fragment>
-    you are on mobile
+    you are on mobile screen size: {windowWidth}px
   </React.Fragment>
 )}
 
