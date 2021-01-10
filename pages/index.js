@@ -171,7 +171,7 @@ const Home = () => {
   }, [sloganArrayIndex]);
 
   const handleLoad = (event) => {
-    setWindowWidth(event.currentTarget.innerWidth);
+    setWindowWidth(window.innerWidth);
   };
 
   const handleResize = (event) => {
