@@ -20,6 +20,7 @@ import {
   isMobile,
   isTablet,
 } from "react-device-detect";
+import MobileHome from "./index.mobile";
 
 const scrollDuration = 900;
 
@@ -267,57 +268,25 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppBar />
+     
 
       {isBrowser && windowWidth < 1024 && (
-        <React.Fragment>
-          {" "}
-          <div
-            style={{
-              minHeight: "100vh",
-              paddingTop: "40%",
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            {" "}
-            Small Screen Size{" "}
-          </div>
-        </React.Fragment>
+          <MobileHome/>
       )}
 
       {isMobile && (
-        <React.Fragment>
-          <div
-            style={{
-              minHeight: "100vh",
-              paddingTop: "40%",
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            you are on mobile device size: {windowWidth}px
-          </div>
-        </React.Fragment>
+         <MobileHome/>
       )}
 
       {isTablet && (
-        <React.Fragment>
-          <div
-            style={{
-              minHeight: "100vh",
-              paddingTop: "40%",
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            you are on Tablet device size: {windowWidth}px
-          </div>
-        </React.Fragment>
+          <MobileHome/>
       )}
 
       {isBrowser && windowWidth >= 1024 && (
         <React.Fragment>
+
+          <AppBar />
+
           <div className={styles.container}>
             <Grid
               container
