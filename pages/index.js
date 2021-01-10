@@ -58,6 +58,10 @@ const Home = ({ t }) => {
   const [currentTabletImage, setCurrentTabletImage] = React.useState(sloganArray[0].tabletImage)
   const [nextTabletImage, setNextTabletImage] = React.useState(sloganArray[1].tabletImage)
 
+  const [phoneCoverClass, setPhoneCoverClass] = React.useState(clx(styles.hpc_phone__cover))
+  const [tabletCoverClass, setTabletCoverClass] = React.useState(clx(styles.hpc_tablet__cover))
+  const [picsContainerClass, setPicsContainerClass] = React.useState(styles.hpc_pics_container)
+
   const [slideTriggered, setSlideTriggered] = React.useState(false)
  
   const [scrollTop, setScrollTop] = React.useState(0);
@@ -81,15 +85,37 @@ const Home = ({ t }) => {
       });
     }, 60);
 
-    setHpcAnimationClasses(
-      clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_1)
-    );
-    setHpcAnimationClasses2(
-      clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_2)
-    );
-    setHpcAnimationClasses3(
-      clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_3)
-    );
+    setTimeout(() => {
+      setHpcAnimationClasses(
+        clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_1)
+      );
+      setHpcAnimationClasses2(
+        clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_2)
+      );
+      setHpcAnimationClasses3(
+        clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_3)
+      );
+    }, 500);
+
+
+    setTimeout(() => {
+      setPhoneCoverClass(
+        clx(styles.hpc_phone__cover, styles.hpc_phone__cover_load, styles.hpc_animate_delay_5)
+      )
+    }, 2000);
+
+    setTimeout(() => {
+      setPicsContainerClass(
+        clx(styles.hpc_pics_container, styles.hpc_pics_container_load, styles.hpc_animate_delay_1)
+      )
+    }, 2200);
+
+    setTimeout(() => {
+      setTabletCoverClass(
+        clx(styles.hpc_tablet__cover, styles.hpc_tablet__cover_load, styles.hpc_animate_delay_5)
+      )
+    }, 3000);
+    
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
@@ -318,7 +344,7 @@ const Home = ({ t }) => {
                                     paused
                                   >
                                     <div
-                                      className={clx(styles.hpc_phone__cover)}
+                                      className={phoneCoverClass}
                                     >
                                       <div
                                         className={clx(styles.hpc_phone__frame)}
@@ -380,7 +406,7 @@ const Home = ({ t }) => {
                                     paused
                                   >
                                     <div
-                                      className={clx(styles.hpc_tablet__cover)}
+                                      className={tabletCoverClass}
                                     >
                                       <div
                                         className={clx(
@@ -441,7 +467,7 @@ const Home = ({ t }) => {
                               totalProgress={progress}
                               paused
                             >
-                              <div className={clx(styles.hpc_pics_container)}>
+                              <div className={picsContainerClass}>
                                 <div
                                   className={clx(
                                     styles.hpc_pics,

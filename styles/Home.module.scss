@@ -125,6 +125,10 @@ $blue : #00F;
   transition-delay: 0.3s;
 }
 
+.hpc_animate_delay_5 {
+  transition-delay: 0.5s;
+}
+
 .hpc_animate_animated {
   opacity: 1;
   transform: translateX(0);
@@ -147,7 +151,15 @@ $blue : #00F;
 .hpc_pics_container{
   position: relative;
   transform: rotate(30deg);
+  width: 0vw;
+  opacity: 0;
+  transition: opacity 1s,width 0.4s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
+}
+
+.hpc_pics_container_load {
   width: 57vw;
+  opacity: 1;
+  transition: opacity 1s,width 0.4s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
 }
 
 
@@ -162,9 +174,7 @@ $blue : #00F;
    background-color: #fae053;
 }
 
-
-
-.hpc_phone__cover{
+.hpc_phone__cover {
     width: 18vw;
     height: 29vw;
     background-size: contain;
@@ -174,6 +184,12 @@ $blue : #00F;
     will-change: width,height;
     overflow: hidden;
     z-index: 30;
+    opacity: 0;
+}
+
+.hpc_phone__cover_load {
+  transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
+  opacity: 1;
 }
 
 .hpc_phone__frame {
@@ -200,6 +216,12 @@ $blue : #00F;
   will-change: width,height;
   overflow: hidden;
   z-index: 30;
+  opacity: 0;
+}
+
+.hpc_tablet__cover_load {
+  transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
+  opacity: 1;
 }
 
 .hpc_tablet__frame {
