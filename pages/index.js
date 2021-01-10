@@ -170,16 +170,15 @@ const Home = () => {
 
   }, [sloganArrayIndex]);
 
-  const handleLoad = () => {
-    setWindowWidth(window.innerWidth);
+  const handleLoad = (event) => {
+    setWindowWidth(event.currentTarget.innerWidth);
   };
 
-  const handleResize = () => {
+  const handleResize = (event) => {
     setWindowWidth(window.innerWidth);
   };
 
   const handleScroll = () => {
-    setWindowWidth(window.innerWidth);
     const _scrollTop = parseInt((window.scrollY / window.innerHeight) * 100);
     setScrollTop(_scrollTop);
   };
