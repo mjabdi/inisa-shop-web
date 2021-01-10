@@ -228,14 +228,14 @@ const Home = () => {
    </React.Fragment>
  )}   
 
-{windowWidth > 0 && windowWidth <= 1024 && (
+{windowWidth > 0 && windowWidth < 1024 && (
   <React.Fragment>
     you are on mobile screen size: {windowWidth}px
   </React.Fragment>
 )}
 
 
-{windowWidth > 1024 && (
+{windowWidth >= 1024 && (
   <React.Fragment>
 
       <Head>
