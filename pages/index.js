@@ -18,10 +18,10 @@ const scrollDuration = 900;
 
 const Home = ({ t }) => {
   const sloganArray = [
-    { title: "فروش آنلاین محصول", bg: styles.hpc_underlined_yellow },
-    { title: "اتصال به اینستاگرام", bg: styles.hpc_underlined_magenta },
-    { title: "فروش روی وب سایت", bg: styles.hpc_underlined_green },
-    { title: "راه اندازی کسب و کار", bg: styles.hpc_underlined_indigo },
+    { title: "فروش آنلاین محصول", bg: styles.hpc_underlined_yellow , phoneImage: "/images/phone-slide1.jpg", tabletImage: "/images/tablet-slide1.jpg"},
+    { title: "اتصال به اینستاگرام", bg: styles.hpc_underlined_magenta , phoneImage: "/images/phone-slide2.jpg", tabletImage: "/images/tablet-slide2.jpg"},
+    { title: "فروش روی وب سایت", bg: styles.hpc_underlined_green , phoneImage: "/images/phone-slide3.jpg", tabletImage: "/images/tablet-slide3.jpg"},
+    { title: "راه اندازی کسب و کار", bg: styles.hpc_underlined_indigo , phoneImage: "/images/phone-slide4.jpg", tabletImage: "/images/tablet-slide4.jpg" },
   ];
 
   const hpc_pics_bg = [
@@ -43,6 +43,23 @@ const Home = ({ t }) => {
     clx(styles.hpc_animate)
   );
 
+  const [phoneCurrentClass, setPhoneCurrentClass] = React.useState(
+    clx(styles.hpc_phone_slide)
+  );
+
+  const [phoneNextClass, setPhoneNextClass] = React.useState(
+    clx(styles.hpc_phone_slide)
+  );
+
+  const [currentPhoneImage, setCurrentPhoneImage] = React.useState(sloganArray[0].phoneImage)
+  const [nextPhoneImage, setNextPhoneImage] = React.useState(sloganArray[1].phoneImage)
+
+  
+  const [currentTabletImage, setCurrentTabletImage] = React.useState(sloganArray[0].tabletImage)
+  const [nextTabletImage, setNextTabletImage] = React.useState(sloganArray[1].tabletImage)
+
+  const [slideTriggered, setSlideTriggered] = React.useState(false)
+ 
   const [scrollTop, setScrollTop] = React.useState(0);
 
   const [windowWidth, setWindowWidth] = React.useState(0);
@@ -52,16 +69,17 @@ const Home = ({ t }) => {
 
     const sloganTimer = setInterval(() => {
       setSloganIndex((prev) => {
-        if (prev < sloganArray[sloganArrayIndex].title.length * 2.2) {
+        if (prev < sloganArray[sloganArrayIndex].title.length * 5) {
           return prev + 1;
         } else {
           setSloganArrayIndex((prev) =>
             prev < sloganArray.length - 1 ? prev + 1 : 0
           );
+          setSlideTriggered(true)
           return 0;
         }
       });
-    }, 120);
+    }, 60);
 
     setHpcAnimationClasses(
       clx(styles.hpc_animate_from_left, styles.hpc_animate_delay_1)
@@ -84,6 +102,50 @@ const Home = ({ t }) => {
       window.removeEventListener("resiloadze", handleLoad);
     };
   }, []);
+
+
+  React.useEffect(() => {
+
+    if (slideTriggered)
+    {
+
+    ///************* Slide Phone Image */
+
+
+    setTimeout(() => {
+      setPhoneCurrentClass( clx(styles.hpc_phone_slide))
+      setPhoneNextClass( clx(styles.hpc_phone_slide))    
+    }, 50);
+
+    setTimeout(() => {
+      setPhoneCurrentClass( clx(styles.hpc_phone_slide, styles.hpc_phone_slide_current))
+      setPhoneNextClass( clx(styles.hpc_phone_slide, styles.hpc_phone_slide_next))
+    }, 100);
+
+    ///************* end Slide Phone Image */
+
+    setTimeout(() => {
+      setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
+      setNextPhoneImage(
+        sloganArrayIndex < sloganArray.length - 1
+          ? sloganArray[sloganArrayIndex + 1].phoneImage
+          : sloganArray[0].phoneImage
+      );
+
+      setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
+      setNextTabletImage(
+        sloganArrayIndex < sloganArray.length - 1
+          ? sloganArray[sloganArrayIndex + 1].tabletImage
+          : sloganArray[0].tabletImage
+      );
+    }, 800);
+
+    }
+     
+
+
+
+  }, [sloganArrayIndex]);
 
   const handleLoad = () => {
     console.log(window.innerWidth);
@@ -130,6 +192,8 @@ const Home = ({ t }) => {
     let y = -(((windowWidth) / 500) * 100);
     return y;
   };
+
+ 
 
   return (
     <>
@@ -260,26 +324,20 @@ const Home = ({ t }) => {
                                         className={clx(styles.hpc_phone__frame)}
                                       >
                                         <div
-                                          className={clx(
-                                            styles.hpc_phone_slide,
-                                            styles.hpc_phone_slide_next
-                                          )}
+                                          className={phoneNextClass}
                                         >
                                           <img
-                                            src="/images/phone-slide2.jpg"
+                                            src={nextPhoneImage}
                                             width="100%"
                                             height="100%"
                                             alt="phone-pic"
                                           />
                                         </div>
                                         <div
-                                          className={clx(
-                                            styles.hpc_phone_slide,
-                                            styles.hpc_phone_slide_current
-                                          )}
+                                          className={phoneCurrentClass}
                                         >
                                           <img
-                                            src="/images/phone-slide1.jpg"
+                                            src={currentPhoneImage}
                                             width="100%"
                                             height="100%"
                                             alt="phone-pic"
@@ -330,26 +388,20 @@ const Home = ({ t }) => {
                                         )}
                                       >
                                         <div
-                                          className={clx(
-                                            styles.hpc_phone_slide,
-                                            styles.hpc_phone_slide_next
-                                          )}
+                                          className={phoneNextClass}
                                         >
                                           <img
-                                            src="/images/tablet-slide2.jpg"
+                                            src={nextTabletImage}
                                             width="100%"
                                             height="100%"
                                             alt="phone-pic"
                                           />
                                         </div>
                                         <div
-                                          className={clx(
-                                            styles.hpc_phone_slide,
-                                            styles.hpc_phone_slide_current
-                                          )}
+                                          className={phoneCurrentClass}
                                         >
                                           <img
-                                            src="/images/tablet-slide1.jpg"
+                                            src={currentTabletImage}
                                             width="100%"
                                             height="100%"
                                             alt="phone-pic"

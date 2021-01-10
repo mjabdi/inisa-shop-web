@@ -104,6 +104,9 @@ $blue : #00F;
   // transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
   transform: translateX(800px);
 }
+
+
+
 .hpc_animate_from_left {
   opacity: 1;
   transition: opacity 1s ease-in-out, transform 1s ease-in-out, padding-top 0.5s ease-in-out;
@@ -137,6 +140,8 @@ $blue : #00F;
   transition: width 1s ease-in-out,left 1s ease-in-out,background-color 0.2s ease-in-out;
   margin-left: -50px;
 }
+
+
 
 
 .hpc_pics_container{
@@ -174,7 +179,7 @@ $blue : #00F;
 .hpc_phone__frame {
   width: 10.3vw;
   height: 22.1vw;
-  left: 1.3vw;
+  left: 1.2vw;
   top: 1vw; 
   position: absolute;
   overflow: hidden;
@@ -223,12 +228,6 @@ $blue : #00F;
   animation-timing-function: ease-in-out;
 }
 
-.hpc_phone_slide_current {
-  right: 0;
-}
-.hpc_phone_slide_next {
-  right: -100%;
-}
 .hpc_phone_slide_next {
   right: 100%;
   animation-duration: 0.7s;
