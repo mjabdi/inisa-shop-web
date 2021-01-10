@@ -219,6 +219,10 @@ const Home = () => {
 
   return (
     <>
+
+{windowWidth > 0 && (
+  <React.Fragment>
+
       <Head>
         <title>{'اینیساشاپ'}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -300,6 +304,7 @@ const Home = () => {
                     </Grid>
                   </div>
                 </Grid>
+                
 
                 {windowWidth > 0 && (
                   <Grid item id="sec12" xs={12} md={7}>
@@ -639,6 +644,8 @@ const Home = () => {
           Powered by inisashop.com
         </a>
       </footer>
+
+      </React.Fragment> )}
     </>
   );
 };
