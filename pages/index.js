@@ -171,7 +171,6 @@ const Home = () => {
   }, [sloganArrayIndex]);
 
   const handleLoad = () => {
-    console.log(window.innerWidth);
     setWindowWidth(window.innerWidth);
   };
 
@@ -319,8 +318,8 @@ const Home = () => {
                               // pin
                             >
                               {(progress) => (
+                                <div>
                                 <Timeline totalProgress={progress} paused>
-                                  <div>
                                   <Tween
                                     from={{
                                       css: {
@@ -370,8 +369,8 @@ const Home = () => {
                                       </div>
                                     </div>
                                   </Tween>
-                                  </div>
                                 </Timeline>
+                                </div>
                               )}
                             </Scene>
                           </Controller>
@@ -385,8 +384,8 @@ const Home = () => {
                               // pin
                             >
                               {(progress) => (
+                                <div>                              
                                 <Timeline totalProgress={progress} paused>
-                                  <div>
                                   <Tween
                                     from={{
                                       css: {
@@ -436,8 +435,8 @@ const Home = () => {
                                       </div>
                                     </div>
                                   </Tween>
-                                  </div>
                                 </Timeline>
+                                </div>
                               )}
                             </Scene>
                           </Controller>
@@ -452,8 +451,8 @@ const Home = () => {
                         // pin
                         >
                         {(progress) => (
+                          <div>
                           <Timeline totalProgress={progress} paused>
-                            <div>
                             <Tween
                               from={{
                                 css: {
@@ -484,8 +483,8 @@ const Home = () => {
                                 </div>
                               </div>
                             </Tween>
-                            </div>
                           </Timeline>
+                          </div>
                         )}
                       </Scene>
                     </Controller>
@@ -514,8 +513,8 @@ const Home = () => {
                           // pin
                         >
                           {(progress) => (
+                            <div>
                             <Timeline totalProgress={progress} paused>
-                              <div>
                               <Tween
                                 from={{
                                   css: {
@@ -536,8 +535,8 @@ const Home = () => {
                               >
                                 <div className={clx(styles.hpc_sec21)}> </div>
                               </Tween>
-                              </div>
                             </Timeline>
+                            </div>
                           )}
                         </Scene>
                       </Controller>
