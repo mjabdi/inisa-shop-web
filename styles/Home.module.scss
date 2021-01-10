@@ -212,7 +212,7 @@ $blue : #00F;
   background-size: contain;
   background-image: url(/images/tablet.png);
   background-repeat: no-repeat;
-  transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
+  transition: opacity 0.5s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
   will-change: width,height;
   overflow: hidden;
   z-index: 30;
@@ -220,7 +220,7 @@ $blue : #00F;
 }
 
 .hpc_tablet__cover_load {
-  transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
+  transition: opacity 0.5s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
   opacity: 1;
 }
 

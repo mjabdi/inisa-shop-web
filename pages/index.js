@@ -65,12 +65,19 @@ const Home = () => {
  
   const [scrollTop, setScrollTop] = React.useState(0);
 
-  const [windowWidth, setWindowWidth] = React.useState(0);
+  const [windowWidth, setWindowWidth] = React.useState(-1);
 
   React.useEffect(() => {
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleLoad);
+
+   
+
     const sloganTimer = setInterval(() => {
       setSloganIndex((prev) => {
-        if (prev < sloganArray[sloganArrayIndex].title.length * 5) {
+        if (prev < sloganArray[sloganArrayIndex].title.length * 4) {
           return prev + 1;
         } else {
           setSloganArrayIndex((prev) =>
@@ -105,18 +112,16 @@ const Home = () => {
       setPicsContainerClass(
         clx(styles.hpc_pics_container, styles.hpc_pics_container_load, styles.hpc_animate_delay_1)
       )
-    }, 2200);
+    }, 2400);
 
     setTimeout(() => {
       setTabletCoverClass(
         clx(styles.hpc_tablet__cover, styles.hpc_tablet__cover_load, styles.hpc_animate_delay_5)
       )
-    }, 3000);
+    }, 2800);
     
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("load", handleLoad);
+
 
     return () => {
       clearInterval(sloganTimer);
@@ -211,7 +216,7 @@ const Home = () => {
   };
 
   const getCornerOffset = () => {
-    let y = -(((windowWidth) / 500) * 100);
+    let y = -(((windowWidth) / 500) * 80);
     return y;
   };
 
