@@ -165,7 +165,7 @@ const Home = ({ t }) => {
                       justify="center"
                       alignItems="stretch"
                     >
-                      <div style={{ paddingTop: "20%" }}>
+                      <div style={{ paddingTop: "30%" }}>
                         <Grid item>
                           <h1 className={hpcAnimationClasses}>
                             <div>همین حالا آغاز کنید</div>
