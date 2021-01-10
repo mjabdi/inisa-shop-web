@@ -73,8 +73,6 @@ const Home = () => {
     window.addEventListener("resize", handleResize);
     window.addEventListener("load", handleLoad);
 
-   
-
     const sloganTimer = setInterval(() => {
       setSloganIndex((prev) => {
         if (prev < sloganArray[sloganArrayIndex].title.length * 4) {
@@ -120,9 +118,6 @@ const Home = () => {
       )
     }, 2800);
     
-
-
-
     return () => {
       clearInterval(sloganTimer);
       window.removeEventListener("scroll", handleScroll);
@@ -184,6 +179,7 @@ const Home = () => {
   };
 
   const handleScroll = () => {
+    setWindowWidth(window.innerWidth);
     const _scrollTop = parseInt((window.scrollY / window.innerHeight) * 100);
     setScrollTop(_scrollTop);
   };
