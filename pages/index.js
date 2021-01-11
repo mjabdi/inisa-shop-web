@@ -174,7 +174,7 @@ const Home = () => {
       clearInterval(sloganTimer);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("resiloadze", handleLoad);
+      window.removeEventListener("load", handleLoad);
     };
   }, []);
 
