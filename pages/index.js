@@ -195,10 +195,11 @@ const Home = () => {
           clx(styles.hpc_phone_slide, styles.hpc_phone_slide_next)
         );
       }, 100);
+    }
+  }, [sloganArrayIndex]);
 
-      ///************* end Slide Phone Image */
-
-      setTimeout(() => {
+  const onAnimationEnd = () =>
+  {
         setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
         setNextPhoneImage(
           sloganArrayIndex < sloganArray.length - 1
@@ -211,10 +212,8 @@ const Home = () => {
           sloganArrayIndex < sloganArray.length - 1
             ? sloganArray[sloganArrayIndex + 1].tabletImage
             : sloganArray[0].tabletImage
-        );
-      }, 800);
+        ); 
     }
-  }, [sloganArrayIndex]);
 
   const handleLoad = (event) => {
     setWindowWidth(window.innerWidth);
@@ -418,7 +417,7 @@ const Home = () => {
                                                 alt="phone-pic"
                                               />
                                             </div>
-                                            <div className={phoneCurrentClass}>
+                                            <div className={phoneCurrentClass} onAnimationEnd={onAnimationEnd}>
                                               <img
                                                 src={currentPhoneImage}
                                                 width="100%"
