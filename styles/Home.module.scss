@@ -279,6 +279,83 @@ $blue : #00F;
   height: auto;
 }
 
+.hpc_chevron {
+    opacity: 1;
+    transform: rotate(90deg) translateX(0);
+    animation-name: hpc-animate-jump;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    position: fixed;
+    top: 100vh;
+    left: 50%;
+    margin-top: -60px;
+    margin-left: -12px;
+    width: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
+}
+
+.hpc_chevron_load {
+  opacity: 1;
+  transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
+}
+
+
+
+@keyframes hpc-animate-jump {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+      transform: translateY(0) rotate(90deg);
+  }
+  40% {
+      transform: translateY(-14px) rotate(90deg);
+  }
+  60% {
+      transform: translateY(-7px) rotate(90deg);
+  }
+}
+
+.sec21Text{
+  position: absolute;
+  // top: 20%;
+  // right: 20%;
+  z-index: 32;
+  padding: 50px;
+  padding-top: 25%;
+}
+
+.sec21Text_Title{
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #000;
+  text-align: right;
+  line-height: 4rem;
+  // width: 90%;
+  padding-right: 10%;
+}
+
+.sec21Text_Subtitle{
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #111;
+  text-align: right;
+  line-height: 2.2rem;
+  // width: 90%;
+  padding-right: 10%;
+  padding-top: 30px;
+}
+
+.sec21ButtonContainer{
+  padding-right: 10%;
+  padding-top: 10px;
+}
+
+
 
 .border{
   border: 5px solid #333;

@@ -9,6 +9,8 @@ import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 
 import clx from "classnames";
+import classNames from 'classnames/bind';
+
 import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
@@ -21,6 +23,8 @@ import {
   isTablet,
 } from "react-device-detect";
 import MobileHome from "./index.mobile";
+
+let cx = classNames.bind(styles);
 
 const scrollDuration = 900;
 
@@ -58,6 +62,10 @@ const Home = () => {
     styles.hpc_pics_bg_green,
     styles.hpc_pics_bg_indigo,
   ];
+
+  const section2Ref = React.useRef(null)
+
+  
 
   const [sloganArrayIndex, setSloganArrayIndex] = React.useState(0);
   const [sloganIndex, setSloganIndex] = React.useState(0);
@@ -108,6 +116,8 @@ const Home = () => {
   const [scrollTop, setScrollTop] = React.useState(0);
 
   const [windowWidth, setWindowWidth] = React.useState(-1);
+
+  const [chevroLoad, setchevroLoad] = React.useState(false)
 
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -169,6 +179,10 @@ const Home = () => {
         )
       );
     }, 2800);
+
+    setTimeout(() => {
+      setchevroLoad(true)
+    }, 3000);
 
     return () => {
       clearInterval(sloganTimer);
@@ -260,6 +274,11 @@ const Home = () => {
     return y;
   };
 
+  const chevronClicked = () =>
+  {
+    section2Ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <>
       <Head>
@@ -267,24 +286,35 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     
+      {isBrowser && windowWidth < 1024 && <MobileHome />}
 
-      {isBrowser && windowWidth < 1024 && (
-          <MobileHome/>
-      )}
+      {isMobile && <MobileHome />}
 
-      {isMobile && (
-         <MobileHome/>
-      )}
-
-      {isTablet && (
-          <MobileHome/>
-      )}
+      {isTablet && <MobileHome />}
 
       {isBrowser && windowWidth >= 1024 && (
         <React.Fragment>
-
           <AppBar />
+
+          <div hidden={scrollTop > 10} onClick={chevronClicked} className={cx({hpc_chevron: true, hpc_chevron_load: chevroLoad})} id="hpc_chevron">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <title>Chevron</title>
+              <polyline
+                fill="none"
+                stroke="#3A4A59"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                points=".222 4.222 15.778 4.222 15.778 19.778"
+                transform="rotate(45 8 12)"
+              ></polyline>
+            </svg>
+          </div>
 
           <div className={styles.container}>
             <Grid
@@ -299,6 +329,7 @@ const Home = () => {
                   <Grid
                     container
                     id="sec1"
+                   
                     direction="row-reverse"
                     justify="center"
                     alignItems="center"
@@ -362,6 +393,8 @@ const Home = () => {
                           </div>
                         </Grid>
                       </div>
+
+
                     </Grid>
 
                     {windowWidth > 0 && (
@@ -417,7 +450,10 @@ const Home = () => {
                                                 alt="phone-pic"
                                               />
                                             </div>
-                                            <div className={phoneCurrentClass} onAnimationEnd={onAnimationEnd}>
+                                            <div
+                                              className={phoneCurrentClass}
+                                              onAnimationEnd={onAnimationEnd}
+                                            >
                                               <img
                                                 src={currentPhoneImage}
                                                 width="100%"
@@ -550,11 +586,48 @@ const Home = () => {
                     <Grid
                       container
                       id="sec2"
+                      ref={section2Ref}
                       direction="row-reverse"
                       justify="flex-start"
                       alignItems="center"
                     >
                       <Grid item id="sec21" xs={12} md={6}>
+                        <div style={{position:"relative"}}>
+
+                        <div className={styles.sec21Text}>
+                          <Grid container direction="row" alignItems="center" justify="center">
+                            <Grid item>
+                              <div className={styles.sec21Text_Title}>
+                                  با ساخت رایگان فروشگاه خود تنها چند کلیک فاصله دارید !!
+                              </div>
+
+                              <div className={styles.sec21Text_Subtitle}>
+                                  به هزاران فروشگاه اینترنتی که به اینیساشاپ اعتماد کرده اند بپیوندید و محصولات خود را آنلاین بفروشید.
+                              </div>
+
+                              <div className={styles.sec21ButtonContainer}>
+                                <Button
+                                   style={{
+                                    backgroundColor: "#111111",
+                                    color: "#fff",
+                                    width: "250px",
+                                    padding: "10px",
+                                    // marginRight: "250px",
+                                    marginTop: "20px",
+                                    fontSize: "1rem",
+                                  }}
+                                  type="button"
+                                  variant="contained"
+                                >
+                                  رایگان فروشگاه بساز
+                                </Button>
+                              </div>
+                               
+                            </Grid>
+                          </Grid>
+
+                        </div>
+
                         <div className={styles.sec21}>
                           <Controller>
                             <Scene
@@ -592,6 +665,9 @@ const Home = () => {
                             </Scene>
                           </Controller>
                         </div>
+
+                        </div>
+                       
                       </Grid>
                     </Grid>
                   </div>
