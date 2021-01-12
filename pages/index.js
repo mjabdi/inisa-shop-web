@@ -9,11 +9,12 @@ import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 
 import clx from "classnames";
-import classNames from 'classnames/bind';
+import classNames from "classnames/bind";
 
 import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
-import { Tween, Timeline } from "react-gsap";
+import { Tween, Timeline, Reveal } from "react-gsap";
+import Fade from "react-reveal/Fade";
 
 import {
   BrowserView,
@@ -23,10 +24,20 @@ import {
   isTablet,
 } from "react-device-detect";
 import MobileHome from "./index.mobile";
+import { Translate } from "@material-ui/icons";
 
 let cx = classNames.bind(styles);
 
 const scrollDuration = 900;
+
+const FadeInLeft = ({ children }) => (
+  <Tween
+    from={{ opacity: 0, transform: "translate3d(-100vw, 0, 0)" }}
+    ease="back.out(1.4)"
+  >
+    {children}
+  </Tween>
+);
 
 const Home = () => {
   const sloganArray = [
@@ -63,9 +74,7 @@ const Home = () => {
     styles.hpc_pics_bg_indigo,
   ];
 
-  const section2Ref = React.useRef(null)
-
-  
+  const section2Ref = React.useRef(null);
 
   const [sloganArrayIndex, setSloganArrayIndex] = React.useState(0);
   const [sloganIndex, setSloganIndex] = React.useState(0);
@@ -117,7 +126,7 @@ const Home = () => {
 
   const [windowWidth, setWindowWidth] = React.useState(-1);
 
-  const [chevroLoad, setchevroLoad] = React.useState(false)
+  const [chevroLoad, setchevroLoad] = React.useState(false);
 
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -181,7 +190,7 @@ const Home = () => {
     }, 2800);
 
     setTimeout(() => {
-      setchevroLoad(true)
+      setchevroLoad(true);
     }, 3000);
 
     return () => {
@@ -212,22 +221,21 @@ const Home = () => {
     }
   }, [sloganArrayIndex]);
 
-  const onAnimationEnd = () =>
-  {
-        setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
-        setNextPhoneImage(
-          sloganArrayIndex < sloganArray.length - 1
-            ? sloganArray[sloganArrayIndex + 1].phoneImage
-            : sloganArray[0].phoneImage
-        );
+  const onAnimationEnd = () => {
+    setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
+    setNextPhoneImage(
+      sloganArrayIndex < sloganArray.length - 1
+        ? sloganArray[sloganArrayIndex + 1].phoneImage
+        : sloganArray[0].phoneImage
+    );
 
-        setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
-        setNextTabletImage(
-          sloganArrayIndex < sloganArray.length - 1
-            ? sloganArray[sloganArrayIndex + 1].tabletImage
-            : sloganArray[0].tabletImage
-        ); 
-    }
+    setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
+    setNextTabletImage(
+      sloganArrayIndex < sloganArray.length - 1
+        ? sloganArray[sloganArrayIndex + 1].tabletImage
+        : sloganArray[0].tabletImage
+    );
+  };
 
   const handleLoad = (event) => {
     setWindowWidth(window.innerWidth);
@@ -274,10 +282,9 @@ const Home = () => {
     return y;
   };
 
-  const chevronClicked = () =>
-  {
-    section2Ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  const chevronClicked = () => {
+    section2Ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -296,7 +303,12 @@ const Home = () => {
         <React.Fragment>
           <AppBar />
 
-          <div hidden={scrollTop > 10} onClick={chevronClicked} className={cx({hpc_chevron: true, hpc_chevron_load: chevroLoad})} id="hpc_chevron">
+          <div
+            hidden={scrollTop > 10}
+            onClick={chevronClicked}
+            className={cx({ hpc_chevron: true, hpc_chevron_load: chevroLoad })}
+            id="hpc_chevron"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -329,7 +341,6 @@ const Home = () => {
                   <Grid
                     container
                     id="sec1"
-                   
                     direction="row-reverse"
                     justify="center"
                     alignItems="center"
@@ -393,8 +404,6 @@ const Home = () => {
                           </div>
                         </Grid>
                       </div>
-
-
                     </Grid>
 
                     {windowWidth > 0 && (
@@ -592,82 +601,87 @@ const Home = () => {
                       alignItems="center"
                     >
                       <Grid item id="sec21" xs={12} md={6}>
-                        <div style={{position:"relative"}}>
+                        <div style={{ position: "relative" }}>
+                          <Fade left>
+                            <div id="sec21Text" className={styles.sec21Text}>
+                              <Grid
+                                container
+                                direction="row"
+                                alignItems="center"
+                                justify="center"
+                              >
+                                <Grid item>
+                                  <div className={styles.sec21Text_Title}>
+                                    با ساخت رایگان فروشگاه خود تنها چند کلیک
+                                    فاصله دارید !!
+                                  </div>
 
-                        <div className={styles.sec21Text}>
-                          <Grid container direction="row" alignItems="center" justify="center">
-                            <Grid item>
-                              <div className={styles.sec21Text_Title}>
-                                  با ساخت رایگان فروشگاه خود تنها چند کلیک فاصله دارید !!
-                              </div>
+                                  <div className={styles.sec21Text_Subtitle}>
+                                    به هزاران فروشگاه اینترنتی که به اینیساشاپ
+                                    اعتماد کرده اند بپیوندید و محصولات خود را
+                                    آنلاین بفروشید.
+                                  </div>
 
-                              <div className={styles.sec21Text_Subtitle}>
-                                  به هزاران فروشگاه اینترنتی که به اینیساشاپ اعتماد کرده اند بپیوندید و محصولات خود را آنلاین بفروشید.
-                              </div>
+                                  <div className={styles.sec21ButtonContainer}>
+                                    <Button
+                                      style={{
+                                        backgroundColor: "#111111",
+                                        color: "#fff",
+                                        width: "250px",
+                                        padding: "10px",
+                                        // marginRight: "250px",
+                                        marginTop: "20px",
+                                        fontSize: "1rem",
+                                      }}
+                                      type="button"
+                                      variant="contained"
+                                    >
+                                      رایگان فروشگاه بساز
+                                    </Button>
+                                  </div>
+                                </Grid>
+                              </Grid>
+                            </div>
+                          </Fade>
 
-                              <div className={styles.sec21ButtonContainer}>
-                                <Button
-                                   style={{
-                                    backgroundColor: "#111111",
-                                    color: "#fff",
-                                    width: "250px",
-                                    padding: "10px",
-                                    // marginRight: "250px",
-                                    marginTop: "20px",
-                                    fontSize: "1rem",
-                                  }}
-                                  type="button"
-                                  variant="contained"
-                                >
-                                  رایگان فروشگاه بساز
-                                </Button>
-                              </div>
-                               
-                            </Grid>
-                          </Grid>
+                          <div className={styles.sec21}>
+                            <Controller>
+                              <Scene
+                                triggerElement="#sec12"
+                                // triggerHook="onScroll"
+                                duration={scrollDuration}
+                                //pin
+                              >
+                                {(progress) => (
+                                  <Timeline totalProgress={progress} paused>
+                                    <Tween
+                                      from={{
+                                        css: {
+                                          // margin: "0vh -5vw auto auto",
 
+                                          transform: `matrix(0.86603, 0.5, -0.5, 0.86603, 0, ${getCornerOffset()})`,
+                                        },
+                                        ease: "Strong.easeOut",
+                                      }}
+                                      to={{
+                                        css: {
+                                          transform: "matrix(1, 0, 0, 1, 0, 0)",
+                                        },
+                                        ease: "Strong.easeOut",
+                                      }}
+                                      totalProgress={progress}
+                                      paused
+                                    >
+                                      <div className={clx(styles.hpc_sec21)}>
+                                        {" "}
+                                      </div>
+                                    </Tween>
+                                  </Timeline>
+                                )}
+                              </Scene>
+                            </Controller>
+                          </div>
                         </div>
-
-                        <div className={styles.sec21}>
-                          <Controller>
-                            <Scene
-                              triggerElement="#sec12"
-                              // triggerHook="onScroll"
-                              duration={scrollDuration}
-                              //pin
-                            >
-                              {(progress) => (
-                                <Timeline totalProgress={progress} paused>
-                                  <Tween
-                                    from={{
-                                      css: {
-                                        // margin: "0vh -5vw auto auto",
-
-                                        transform: `matrix(0.86603, 0.5, -0.5, 0.86603, 0, ${getCornerOffset()})`,
-                                      },
-                                      ease: "Strong.easeOut",
-                                    }}
-                                    to={{
-                                      css: {
-                                        transform: "matrix(1, 0, 0, 1, 0, 0)",
-                                      },
-                                      ease: "Strong.easeOut",
-                                    }}
-                                    totalProgress={progress}
-                                    paused
-                                  >
-                                    <div className={clx(styles.hpc_sec21)}>
-                                      {" "}
-                                    </div>
-                                  </Tween>
-                                </Timeline>
-                              )}
-                            </Scene>
-                          </Controller>
-                        </div>
-
-                        </div>
-                       
                       </Grid>
                     </Grid>
                   </div>

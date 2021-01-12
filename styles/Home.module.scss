@@ -327,7 +327,9 @@ $blue : #00F;
   z-index: 32;
   padding: 50px;
   padding-top: 25%;
+  transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
 }
+
 
 .sec21Text_Title{
   font-size: 2.5rem;
