@@ -30,14 +30,6 @@ let cx = classNames.bind(styles);
 
 const scrollDuration = 900;
 
-const FadeInLeft = ({ children }) => (
-  <Tween
-    from={{ opacity: 0, transform: "translate3d(-100vw, 0, 0)" }}
-    ease="back.out(1.4)"
-  >
-    {children}
-  </Tween>
-);
 
 const Home = () => {
   const sloganArray = [
@@ -75,6 +67,8 @@ const Home = () => {
   ];
 
   const section2Ref = React.useRef(null);
+
+  const [pageLoaded, setPageLoaded] = React.useState(false)
 
   const [sloganArrayIndex, setSloganArrayIndex] = React.useState(0);
   const [sloganIndex, setSloganIndex] = React.useState(0);
@@ -129,6 +123,7 @@ const Home = () => {
   const [chevroLoad, setchevroLoad] = React.useState(false);
 
   React.useEffect(() => {
+
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
     window.addEventListener("load", handleLoad);
@@ -201,6 +196,9 @@ const Home = () => {
     };
   }, []);
 
+
+
+
   React.useEffect(() => {
     if (slideTriggered) {
       ///************* Slide Phone Image */
@@ -239,6 +237,7 @@ const Home = () => {
 
   const handleLoad = (event) => {
     setWindowWidth(window.innerWidth);
+    setPageLoaded(true)
   };
 
   const handleResize = (event) => {
@@ -287,19 +286,20 @@ const Home = () => {
   };
 
   return (
+
     <>
       <Head>
         <title>{"اینیساشاپ"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {isBrowser && windowWidth < 1024 && <MobileHome />}
+      {pageLoaded && isBrowser && windowWidth < 1024 && <MobileHome />}
 
-      {isMobile && <MobileHome />}
+      {pageLoaded && isMobile && <MobileHome />}
 
-      {isTablet && <MobileHome />}
+      {pageLoaded && isTablet && <MobileHome />}
 
-      {isBrowser && windowWidth >= 1024 && (
+      {pageLoaded && isBrowser && windowWidth >= 1024 && (
         <React.Fragment>
           <AppBar />
 
