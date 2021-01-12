@@ -122,11 +122,14 @@ const Home = () => {
 
   const [chevroLoad, setchevroLoad] = React.useState(false);
 
+
+
   React.useEffect(() => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
     window.addEventListener("load", handleLoad);
+
 
     const sloganTimer = setInterval(() => {
       setSloganIndex((prev) => {
@@ -295,9 +298,9 @@ const Home = () => {
 
       {pageLoaded && isBrowser && windowWidth < 1024 && <MobileHome />}
 
-      {pageLoaded && isMobile && <MobileHome />}
+      {isMobile && <MobileHome />}
 
-      {pageLoaded && isTablet && <MobileHome />}
+      {isTablet && <MobileHome />}
 
       {pageLoaded && isBrowser && windowWidth >= 1024 && (
         <React.Fragment>
