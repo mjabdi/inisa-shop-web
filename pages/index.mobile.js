@@ -337,7 +337,7 @@ const MobileHome = () => {
                             justify="center"
                             alignItems="stretch"
                           >
-                            <Grid item xs="4">
+                            <Grid item xs={4}>
                                <div className={phoneCoverClass} >
                                           <div className={clx(styles.hpc_phone__frame)}>
 
@@ -357,7 +357,7 @@ const MobileHome = () => {
                                 </div>
 
                             </Grid>
-                            <Grid item xs="8">
+                            <Grid item xs={8}>
                                <div className={tabletCoverClass}>
                                           <div className={clx(styles.hpc_tablet__frame)}></div>
                                 </div>
