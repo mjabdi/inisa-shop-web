@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import styles from './app-bar.module.css';
+import styles from './app-bar-mobile.module.css';
 import PropTypes from 'prop-types'
 import { useScrollTrigger } from '@material-ui/core';
 import React from 'react';

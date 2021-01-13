@@ -265,7 +265,8 @@ const MobileHome = () => {
                   alignItems="stretch"
                 >
                   <Grid item xs={12} id="1">
-                  <div className={styles.sec11} style={{padding:"10%", textAlign:"right"}}>
+                    <div className={styles.grid1}>
+                      <div className={styles.sec11} style={{padding:"10%", textAlign:"right"}}>
                         <Grid
                           container
                           direction="row"
@@ -307,14 +308,16 @@ const MobileHome = () => {
                                   style={{
                                     backgroundColor: "#111111",
                                     color: "#fff",
-                                    width: "250px",
+                                    // width: "250px",
                                     padding: "10px",
                                     // marginRight: "250px",
                                     marginTop: "20px",
                                     fontSize: "1rem",
+                                    
                                   }}
                                   type="button"
                                   variant="contained"
+                                  fullWidth={true}
                                 >
                                   رایگان فروشگاه بساز
                                 </Button>
@@ -323,6 +326,7 @@ const MobileHome = () => {
                           </div>
                         </Grid>
                       </div>
+                    </div> 
                   </Grid>
 
 
@@ -331,7 +335,7 @@ const MobileHome = () => {
 
                   <Grid item xs={12} id="2">
                     <div className={styles.grid2}>
-                      <Grid
+                       <Grid
                             container
                             direction="row-reverse"
                             justify="center"
@@ -359,10 +363,25 @@ const MobileHome = () => {
                             </Grid>
                             <Grid item xs={8}>
                                <div className={tabletCoverClass}>
-                                          <div className={clx(styles.hpc_tablet__frame)}></div>
+                                          <div className={clx(styles.hpc_tablet__frame)}>
+                                              <div className={styles.hpc_phone_slide}>
+                                                  <img
+                                                    src={sloganArray[0].tabletImage}
+                                                    width="100%"
+                                                    height="100%"
+                                                    alt="tablet-pic"
+                                                  />
+                                                </div>
+                                          </div>
                                 </div>
                             </Grid>
                         </Grid>
+
+
+
+
+
+                        
                       </div>
                   </Grid>
                 </Grid>

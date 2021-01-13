@@ -81,23 +81,29 @@
   .grid1{
     background-color: #fff;
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
   .grid2{
-    background-color: #fff;
+    background-color: #fae053;
     width: 100%;
-    height: 100vh;
-    padding-left: 4vh;
+    height: 1800px;
+    padding-left: 35px;
   }
   .sec11{
     // background-color: $blue;
     width: 100%;
-    height: 70vh;
+    height: 570px;
     z-index: 21;
   }
   .sec21{
     width: 100%;
-    min-height: 100vh;
+    min-height: 1800px;
+  }
+  .hpc_sec21{
+    width: 150px;
+    height: 1000px;
+    position: absolute;
+    background-color: #fae053;
   }
 
   .hpc_caret {
@@ -131,8 +137,8 @@
 
 
   .hpc_phone__cover {
-    width: 38vw;
-    height: 129vw;
+    width: 159px;
+    height: 249px;
     background-size: contain;
     background-image: url(/images/phone.png);
     background-repeat: no-repeat;
@@ -142,6 +148,7 @@
     z-index: 30;
     opacity: 0;
     transform: translateX(25px) translateY(-45px);
+    // background-color: #ff81a9;
 }
 
 
@@ -151,10 +158,10 @@
 }
 
 .hpc_phone__frame {
-  width: 21.3vw;
-  height: 46.5vw;
-  left: 2.6vw;
-  top: 2.6vw; 
+  width: 89.9px;
+  height: 192.5px;
+  left: 9.9px;
+  top: 9.9px; 
   position: absolute;
   overflow: hidden;
   transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
@@ -171,8 +178,8 @@
 
 .hpc_tablet__cover{
   
-    width: 90vw;
-    height: 85vw;
+    width: 325px;
+    height: 240px;
     background-size: contain;
     background-image: url(/images/tablet.png);
     background-repeat: no-repeat;
@@ -181,7 +188,8 @@
     overflow: hidden;
     z-index: 30;
     opacity: 0;
-    transform: translateY(5px) translateX(95px);
+    transform: translateY(5px) translateX(80px);
+    // background-color: aqua;
   }
   
   .hpc_tablet__cover_load {
@@ -190,10 +198,10 @@
   }
   
   .hpc_tablet__frame {
-    width: 44.7vw;
-    height: 30.8vw;
-    left: 2.6vw;
-    top: 1vw; 
+    width: 279.2px;
+    height: 193.1px;
+    left: 15.1px;
+    top: -2px; 
     position: absolute;
     overflow: hidden;
     transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
