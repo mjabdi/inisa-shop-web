@@ -255,7 +255,7 @@ const MobileHome = () => {
 
   return (
     <>
-      <AppBar />
+      {/* <AppBar /> */}
         <div className={styles.container}>
             <Grid
                   container
@@ -266,14 +266,14 @@ const MobileHome = () => {
                 >
                   <Grid item xs={12} id="1">
                     <div className={styles.grid1}>
-                      <div className={styles.sec11} style={{padding:"10%", textAlign:"right"}}>
+                      <div className={styles.sec11} style={{paddingLeft:"10vw",paddingRight:"10vw", textAlign:"right"}}>
                         <Grid
                           container
                           direction="row"
                           justify="center"
                           alignItems="stretch"
                         >
-                          <div style={{ paddingTop: "27%" }}>
+                          <div style={{ paddingTop: "20vh" }}>
                             <Grid item>
                               <h1 className={hpcAnimationClasses}>
                                 <div >همین حالا آغاز کنید</div>
@@ -313,6 +313,7 @@ const MobileHome = () => {
                                     // marginRight: "250px",
                                     marginTop: "20px",
                                     fontSize: "1rem",
+                                    marginBottom:"30px"
                                     
                                   }}
                                   type="button"
@@ -340,8 +341,9 @@ const MobileHome = () => {
                             direction="row-reverse"
                             justify="center"
                             alignItems="stretch"
+                            
                           >
-                            <Grid item xs={4}>
+                            <Grid item xs={6}>
                                <div className={phoneCoverClass} >
                                           <div className={clx(styles.hpc_phone__frame)}>
 
@@ -361,7 +363,7 @@ const MobileHome = () => {
                                 </div>
 
                             </Grid>
-                            <Grid item xs={8}>
+                            <Grid item item xs={6}>
                                <div className={tabletCoverClass}>
                                           <div className={clx(styles.hpc_tablet__frame)}>
                                               <div className={styles.hpc_phone_slide}>
