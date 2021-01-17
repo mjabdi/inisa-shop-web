@@ -81,13 +81,14 @@
   .grid1{
     background-color: #fff;
     width: 100%;
-    height: 100%;
+    min-height: 80vh;
   }
   .grid2{
     background-color: #fae053;
     width: 100%;
     height: 1800px;
     padding-left: 35px;
+    position: relative;
   }
   .sec11{
     // background-color: $blue;
@@ -137,17 +138,14 @@
 
 
   .hpc_phone__cover {
-    width: 159px;
-    height: 249px;
-    background-size: contain;
-    background-image: url(/images/phone.png);
-    background-repeat: no-repeat;
+    position: absolute;
+    top: -100px;
     transition: opacity 1s,width 1s ease-in-out,height 1s ease-in-out,left 1s ease-in-out,right 1s ease-in-out,top 1s ease-in-out,bottom 1s ease-in-out;
     will-change: width,height;
     overflow: hidden;
     z-index: 30;
     opacity: 0;
-    transform: translateX(25px) translateY(-45px);
+    // transform: translateX(-400px) translateY(-45px);
     // background-color: #ff81a9;
 }
 

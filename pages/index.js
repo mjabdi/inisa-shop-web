@@ -696,19 +696,57 @@ const Home = () => {
                   <Grid
                     container
                     id="sec3"
-                    direction="row"
+                    direction="row-reverse"
                     justify="center"
                     alignItems="center"
                   >
                     <Grid item id="sec31" xs={12} md={6}>
-                      <div className={styles.sec31}></div>
+                      <div className={styles.sec31}>
+                          <Image src="/images/Slider_Website_2.png" width="530px" height="530px"/>
+                      </div>
                     </Grid>
                     <Grid item id="sec32" xs={12} md={6}>
-                      <div className={styles.sec32}></div>
+                      <div className={styles.sec32}>
+                      <Fade bottom>
+                            <div id="sec32Text" className={styles.sec32Text}>
+                              <Grid
+                                container
+                                direction="row"
+                                alignItems="center"
+                                justify="center"
+                              >
+                                <Grid item >
+                                  <div className={styles.sec32Text_Title}>
+                                  اتصال به اینستاگرام به محض ورود
+                                    </div>
+
+                                  <div className={styles.sec32Text_Subtitle}>
+                                    تنها با وارد کردن اکانت صفحه اینستاگرام خود،تمامی
+                                    پست‌های خود را مشاهده کنید.
+                                  </div>
+
+                                <div style={{textAlign:"left", width:"80%"}}>
+                                  <a className={styles.learnMore}>
+                                    بیشتر بدانیم
+                                                </a>
+                                </div>
+
+
+                                </Grid>
+                              </Grid>
+                            </div>
+                          </Fade>
+
+                      </div>
                     </Grid>
                   </Grid>
                 </div>
               </Grid>
+
+
+
+
+              
               <Grid item xs={12} id="4">
                 <div className={styles.grid4}>
                   <Grid
@@ -719,32 +757,107 @@ const Home = () => {
                     alignItems="center"
                   >
                     <Grid item id="sec41" xs={12} md={6}>
-                      <div className={styles.sec41}></div>
+                    <div className={styles.sec41}>
+                          <Image src="/images/Home_page_Google_MC_FB-1591955663.png" width="530px" height="530px"/>
+                      </div>
                     </Grid>
                     <Grid item id="sec42" xs={12} md={6}>
-                      <div className={styles.sec42}></div>
+                      <div className={styles.sec42}>
+                        <Fade bottom>
+                            <div id="sec42Text" className={styles.sec32Text}>
+                              <Grid
+                                container
+                                direction="row"
+                                alignItems="center"
+                                justify="center"
+                              >
+                                <Grid item >
+                                  <div className={styles.sec32Text_Title}>
+                                  رشد سریعتر و فروش بیشتر
+                                    </div>
+
+                                  <div className={styles.sec32Text_Subtitle}>
+                                    با پیوستن به مجموعه بزرگ فروشگاه‌های اینستاگرامی امکان بیشتر دیده شدن، خرید‌وفروش آسان می‌توانید سرعت رشد و فروش را بالا ببرید.
+                                  </div>
+
+                                <div style={{textAlign:"left", width:"80%"}}>
+                                  <a className={styles.learnMore}>
+                                    بیشتر بدانیم
+                                                </a>
+                                </div>
+
+
+                                </Grid>
+                              </Grid>
+                            </div>
+                          </Fade>
+
+                      </div>
                     </Grid>
                   </Grid>
                 </div>
               </Grid>
+
+
+
+
+
+
               <Grid item xs={12} id="5">
                 <div className={styles.grid5}>
                   <Grid
                     container
                     id="sec5"
-                    direction="row"
+                    direction="row-reverse"
                     justify="center"
                     alignItems="center"
                   >
                     <Grid item id="sec51" xs={12} md={6}>
-                      <div className={styles.sec51}></div>
+                    <div className={styles.sec51}>
+                          {/* <Image src="/images/phclayer1.png" width="530px" height="530px"/> */}
+                          <Image src="/images/phclayer2.png" width="530px" height="530px"/>
+                      </div>
                     </Grid>
                     <Grid item id="sec52" xs={12} md={6}>
-                      <div className={styles.sec52}></div>
+                    <div className={styles.sec52}>
+                        <Fade bottom>
+                            <div id="sec52Text" className={styles.sec32Text}>
+                              <Grid
+                                container
+                                direction="row"
+                                alignItems="center"
+                                justify="center"
+                              >
+                                <Grid item >
+                                  <div className={styles.sec32Text_Title}>
+                                  مدیریت آسان
+                                    </div>
+
+                                  <div className={styles.sec32Text_Subtitle}>
+                                    قابلیت مدیریت آسان فروشگاه‌ها، سفارشات، قیمت‌ها، تنها از طریق یک داشبورد ! 
+                                  </div>
+
+                                <div style={{textAlign:"left", width:"80%"}}>
+                                  <a className={styles.learnMore}>
+                                    بیشتر بدانیم
+                                                </a>
+                                </div>
+
+
+                                </Grid>
+                              </Grid>
+                            </div>
+                          </Fade>
+                         </div> 
                     </Grid>
                   </Grid>
                 </div>
               </Grid>
+
+
+
+
+
               <Grid item xs={12} id="6">
                 <div className={styles.grid6}></div>
               </Grid>

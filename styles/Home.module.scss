@@ -357,7 +357,52 @@ $blue : #00F;
   padding-top: 10px;
 }
 
-
+.sec32Text{
+  position: absolute;
+  // top: 20%;
+  // right: 20%;
+  z-index: 32;
+  // padding: 5px;
+  // padding-top: 25%;
+  transition: opacity 1s, width 1s ease-in-out, height 1s ease-in-out, left 1s ease-in-out, right 1s ease-in-out, top 1s ease-in-out, bottom 1s ease-in-out;
+}
+.sec32Text_Title{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  text-align: right;
+  line-height: 4rem;
+  // width: 90%;
+  padding-left: 14%;
+  padding-right: 14%;
+}
+.sec32Text_Subtitle{
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #111;
+  text-align: right;
+  line-height: 2.2rem;
+  // width: 90%;
+  padding-left: 15%;
+  padding-right: 15%;
+  // padding-top: 30px;
+}
+.learnMore{
+  color: "#333";
+  font-size: "1rem";
+}
+.learnMore::after{
+  content: "";
+  -webkit-mask: url(/images/arrow.svg);
+  mask: url(/images/arrow.svg);
+  -webkit-mask-size: 18px;
+  mask-size: 18px;
+  color: #000;
+  height: 14px;
+  width: 25px;
+  right: -24px;
+  bottom: 6px;
+}
 
 .border{
   border: 5px solid #333;
@@ -383,16 +428,19 @@ $blue : #00F;
   height: 100vh;
 }
 .grid3{
-  background-color:#fafafa;
+  background-color:#fff;
   width: 100%;
+  height: 100vh;
 }
 .grid4{
-  background-color: #fafafa;
+  background-color: #fff;
   width: 100%;
+  height: 100vh;
 }
 .grid5{
-  background-color: #fafafa;
+  background-color: #fff;
   width: 100%;
+  height: 100vh;
 }
 .grid6{
   background-color: #fafafa;
@@ -427,34 +475,34 @@ $blue : #00F;
   min-height: 100px;
 }
 .sec31{
-  background-color: #1371c9;
+  background-color: #fff;
   width: 100%;
-  min-height: 100px;
+  // min-height: 100px;
 }
 .sec32{
-  background-color: #22a82d;
+  background-color: #fff;
   width: 100%;
-  min-height: 100px;
+  min-height: 250px;
 }
 .sec41{
-  background-color: #c9aa13;
+  background-color: #fff;
   width: 100%;
-  min-height: 100px;
+  // min-height: 100px;
 }
 .sec42{
-  background-color: #80bfdd;
+  background-color: #fff;
   width: 100%;
-  min-height: 100px;
+  min-height: 200px;
 }
 .sec51{
-  background-color: #12883a;
+  background-color: #fff;
   width: 100%;
   min-height: 100px;
 }
 .sec52{
-  background-color: #8d215c;
+  background-color: #fff;
   width: 100%;
-  min-height: 100px;
+  min-height: 300px;
 }
 .sec71{
   background-color: #13c92b;

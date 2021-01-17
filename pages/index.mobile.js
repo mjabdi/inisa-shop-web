@@ -335,52 +335,9 @@ const MobileHome = () => {
 
                   <Grid item xs={12} id="2">
                     <div className={styles.grid2}>
-                       <Grid
-                            container
-                            direction="row-reverse"
-                            justify="center"
-                            alignItems="stretch"
-                          >
-                            <Grid item xs={4}>
                                <div className={phoneCoverClass} >
-                                          <div className={clx(styles.hpc_phone__frame)}>
-
-
-                                                  <div className={styles.hpc_phone_slide} >
-                                                      <img
-                                                          src={sloganArray[0].phoneImage}
-                                                          width="100%"
-                                                          height="100%"
-                                                          alt="phone-pic"
-                                                          
-                                                      />
-                                                  </div>
-
-
-                                          </div>
+                                  <Image src="/images/mobile_single_slide@2x.png" width="800px" height="520px"/>
                                 </div>
-
-                            </Grid>
-                            <Grid item xs={8}>
-                               <div className={tabletCoverClass}>
-                                          <div className={clx(styles.hpc_tablet__frame)}>
-                                              <div className={styles.hpc_phone_slide}>
-                                                  <img
-                                                    src={sloganArray[0].tabletImage}
-                                                    width="100%"
-                                                    height="100%"
-                                                    alt="tablet-pic"
-                                                  />
-                                                </div>
-                                          </div>
-                                </div>
-                            </Grid>
-                        </Grid>
-
-
-
-
-
                         
                       </div>
                   </Grid>
