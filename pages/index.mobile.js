@@ -255,7 +255,7 @@ const MobileHome = () => {
 
   return (
     <>
-      <AppBar />
+      {/* <AppBar /> */}
         <div className={styles.container}>
             <Grid
                   container
@@ -266,14 +266,14 @@ const MobileHome = () => {
                 >
                   <Grid item xs={12} id="1">
                     <div className={styles.grid1}>
-                      <div className={styles.sec11} style={{padding:"10%", textAlign:"right"}}>
+                      <div className={styles.sec11} style={{paddingLeft:"10vw",paddingRight:"10vw", textAlign:"right"}}>
                         <Grid
                           container
                           direction="row"
                           justify="center"
                           alignItems="stretch"
                         >
-                          <div style={{ paddingTop: "27%" }}>
+                          <div style={{ paddingTop: "20vh" }}>
                             <Grid item>
                               <h1 className={hpcAnimationClasses}>
                                 <div >همین حالا آغاز کنید</div>
@@ -313,6 +313,7 @@ const MobileHome = () => {
                                     // marginRight: "250px",
                                     marginTop: "20px",
                                     fontSize: "1rem",
+                                    marginBottom:"30px"
                                     
                                   }}
                                   type="button"
@@ -335,8 +336,50 @@ const MobileHome = () => {
 
                   <Grid item xs={12} id="2">
                     <div className={styles.grid2}>
+<<<<<<< HEAD
                                <div className={phoneCoverClass} >
                                   <Image src="/images/mobile_single_slide@2x.png" width="800px" height="520px"/>
+=======
+                       <Grid
+                            container
+                            direction="row-reverse"
+                            justify="center"
+                            alignItems="stretch"
+                            
+                          >
+                            <Grid item xs={6}>
+                               <div className={phoneCoverClass} >
+                                          <div className={clx(styles.hpc_phone__frame)}>
+
+
+                                                  <div className={styles.hpc_phone_slide} >
+                                                      <img
+                                                          src={sloganArray[0].phoneImage}
+                                                          width="100%"
+                                                          height="100%"
+                                                          alt="phone-pic"
+                                                          
+                                                      />
+                                                  </div>
+
+
+                                          </div>
+                                </div>
+
+                            </Grid>
+                            <Grid item item xs={6}>
+                               <div className={tabletCoverClass}>
+                                          <div className={clx(styles.hpc_tablet__frame)}>
+                                              <div className={styles.hpc_phone_slide}>
+                                                  <img
+                                                    src={sloganArray[0].tabletImage}
+                                                    width="100%"
+                                                    height="100%"
+                                                    alt="tablet-pic"
+                                                  />
+                                                </div>
+                                          </div>
+>>>>>>> 2ba8d19df9cfb33f56ba3cb43efa11ba028dccc2
                                 </div>
                         
                       </div>
