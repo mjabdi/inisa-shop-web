@@ -13,9 +13,6 @@ import Button from "@material-ui/core/Button";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 
-
-
-
 const MobileHome = () => {
   const sloganArray = [
     {
@@ -172,39 +169,39 @@ const MobileHome = () => {
 
   // React.useEffect(() => {
   //   if (slideTriggered) {
-      ///************* Slide Phone Image */
+  ///************* Slide Phone Image */
 
-      // setTimeout(() => {
-      //   setPhoneCurrentClass(clx(styles.hpc_phone_slide));
-      //   setPhoneNextClass(clx(styles.hpc_phone_slide));
-      // }, 50);
+  // setTimeout(() => {
+  //   setPhoneCurrentClass(clx(styles.hpc_phone_slide));
+  //   setPhoneNextClass(clx(styles.hpc_phone_slide));
+  // }, 50);
 
-      // setTimeout(() => {
-      //   setPhoneCurrentClass(
-      //     clx(styles.hpc_phone_slide, styles.hpc_phone_slide_current)
-      //   );
-      //   setPhoneNextClass(
-      //     clx(styles.hpc_phone_slide, styles.hpc_phone_slide_next)
-      //   );
-      // }, 100);
+  // setTimeout(() => {
+  //   setPhoneCurrentClass(
+  //     clx(styles.hpc_phone_slide, styles.hpc_phone_slide_current)
+  //   );
+  //   setPhoneNextClass(
+  //     clx(styles.hpc_phone_slide, styles.hpc_phone_slide_next)
+  //   );
+  // }, 100);
 
-      ///************* end Slide Phone Image */
+  ///************* end Slide Phone Image */
 
-      // setTimeout(() => {
-      //   setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
-      //   setNextPhoneImage(
-      //     sloganArrayIndex < sloganArray.length - 1
-      //       ? sloganArray[sloganArrayIndex + 1].phoneImage
-      //       : sloganArray[0].phoneImage
-      //   );
+  // setTimeout(() => {
+  //   setCurrentPhoneImage(sloganArray[sloganArrayIndex].phoneImage);
+  //   setNextPhoneImage(
+  //     sloganArrayIndex < sloganArray.length - 1
+  //       ? sloganArray[sloganArrayIndex + 1].phoneImage
+  //       : sloganArray[0].phoneImage
+  //   );
 
-      //   setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
-      //   setNextTabletImage(
-      //     sloganArrayIndex < sloganArray.length - 1
-      //       ? sloganArray[sloganArrayIndex + 1].tabletImage
-      //       : sloganArray[0].tabletImage
-      //   );
-      // }, 800);
+  //   setCurrentTabletImage(sloganArray[sloganArrayIndex].tabletImage);
+  //   setNextTabletImage(
+  //     sloganArrayIndex < sloganArray.length - 1
+  //       ? sloganArray[sloganArrayIndex + 1].tabletImage
+  //       : sloganArray[0].tabletImage
+  //   );
+  // }, 800);
   //   }
   // }, [sloganArrayIndex]);
 
@@ -255,137 +252,146 @@ const MobileHome = () => {
 
   return (
     <>
-      {/* <AppBar /> */}
-        <div className={styles.container}>
-            <Grid
+      <AppBar />
+      <div className={styles.container}>
+        <Grid
+          container
+          id="sellerhome"
+          direction="column"
+          justify="center"
+          alignItems="stretch"
+        >
+          <Grid item xs={12} id="1">
+            <div className={styles.grid1}>
+              <div
+                className={styles.sec11}
+                style={{
+                  paddingLeft: "10vw",
+                  paddingRight: "10vw",
+                  textAlign: "right",
+                }}
+              >
+                <Grid
                   container
-                  id="sellerhome"
-                  direction="column"
+                  direction="row"
                   justify="center"
                   alignItems="stretch"
                 >
-                  <Grid item xs={12} id="1">
-                    <div className={styles.grid1}>
-                      <div className={styles.sec11} style={{paddingLeft:"10vw",paddingRight:"10vw", textAlign:"right"}}>
-                        <Grid
-                          container
-                          direction="row"
-                          justify="center"
-                          alignItems="stretch"
-                        >
-                          <div style={{ paddingTop: "20vh" }}>
-                            <Grid item>
-                              <h1 className={hpcAnimationClasses}>
-                                <div >همین حالا آغاز کنید</div>
-                                <div >
-                                  <span
-                                    className={clx(
-                                      styles.hpc_underlined,
-                                      getCurrentSlogan().bg
-                                    )}
-                                  >
-                                    {getSloganPart()}
-                                  </span>
-                                  <span
-                                    className={clx(
-                                      styles.hpc_caret,
-                                      styles.hpc_caret_show,
-                                      styles.hpc_caret_blink
-                                    )}
-                                  ></span>
-                                </div>
-                              </h1>
-                              <p
-                                className={hpcAnimationClasses2}
-                                style={{ textAlign: "justify" }}
-                              >
-                                با ما فروش آنلاین را تجربه کنید. با اینیسا،
-                                فروشگاه رایگان خود را برای همیشه داشته باشید.
-                                یکبار ثبت نام کنید و همیشه استفاده کنید.
-                              </p>
-                              <div className={hpcAnimationClasses3}>
-                                <Button
-                                  style={{
-                                    backgroundColor: "#111111",
-                                    color: "#fff",
-                                    // width: "250px",
-                                    padding: "10px",
-                                    // marginRight: "250px",
-                                    marginTop: "20px",
-                                    fontSize: "1rem",
-                                    marginBottom:"30px"
-                                    
-                                  }}
-                                  type="button"
-                                  variant="contained"
-                                  fullWidth={true}
-                                >
-                                  رایگان فروشگاه بساز
-                                </Button>
-                              </div>
-                            </Grid>
-                          </div>
-                        </Grid>
-                      </div>
-                    </div> 
-                  </Grid>
-
-
-
-
-
-                  <Grid item xs={12} id="2">
-                    <div className={styles.grid2}>
-<<<<<<< HEAD
-                               <div className={phoneCoverClass} >
-                                  <Image src="/images/mobile_single_slide@2x.png" width="800px" height="520px"/>
-=======
-                       <Grid
-                            container
-                            direction="row-reverse"
-                            justify="center"
-                            alignItems="stretch"
-                            
+                  <div style={{ paddingTop: "20vh" }}>
+                    <Grid item>
+                      <h1 className={hpcAnimationClasses}>
+                        <div>همین حالا آغاز کنید</div>
+                        <div>
+                          <span
+                            className={clx(
+                              styles.hpc_underlined,
+                              getCurrentSlogan().bg
+                            )}
                           >
-                            <Grid item xs={6}>
-                               <div className={phoneCoverClass} >
-                                          <div className={clx(styles.hpc_phone__frame)}>
-
-
-                                                  <div className={styles.hpc_phone_slide} >
-                                                      <img
-                                                          src={sloganArray[0].phoneImage}
-                                                          width="100%"
-                                                          height="100%"
-                                                          alt="phone-pic"
-                                                          
-                                                      />
-                                                  </div>
-
-
-                                          </div>
-                                </div>
-
-                            </Grid>
-                            <Grid item item xs={6}>
-                               <div className={tabletCoverClass}>
-                                          <div className={clx(styles.hpc_tablet__frame)}>
-                                              <div className={styles.hpc_phone_slide}>
-                                                  <img
-                                                    src={sloganArray[0].tabletImage}
-                                                    width="100%"
-                                                    height="100%"
-                                                    alt="tablet-pic"
-                                                  />
-                                                </div>
-                                          </div>
->>>>>>> 2ba8d19df9cfb33f56ba3cb43efa11ba028dccc2
-                                </div>
-                        
+                            {getSloganPart()}
+                          </span>
+                          <span
+                            className={clx(
+                              styles.hpc_caret,
+                              styles.hpc_caret_show,
+                              styles.hpc_caret_blink
+                            )}
+                          ></span>
+                        </div>
+                      </h1>
+                      <p
+                        className={hpcAnimationClasses2}
+                        style={{ textAlign: "justify" }}
+                      >
+                        با ما فروش آنلاین را تجربه کنید. با اینیسا، فروشگاه
+                        رایگان خود را برای همیشه داشته باشید. یکبار ثبت نام کنید
+                        و همیشه استفاده کنید.
+                      </p>
+                      <div className={hpcAnimationClasses3}>
+                        <Button
+                          style={{
+                            backgroundColor: "#111111",
+                            color: "#fff",
+                            // width: "250px",
+                            padding: "10px",
+                            // marginRight: "250px",
+                            marginTop: "20px",
+                            fontSize: "1rem",
+                            marginBottom: "30px",
+                          }}
+                          type="button"
+                          variant="contained"
+                          fullWidth={true}
+                        >
+                          رایگان فروشگاه بساز
+                        </Button>
                       </div>
-                  </Grid>
+                    </Grid>
+                  </div>
                 </Grid>
-        </div>
+              </div>
+            </div>
+          </Grid>
+
+          <Grid item xs={12} id="2">
+            <div className={styles.grid2}>
+
+              
+              <div className={phoneCoverClass}>
+                <Image
+                  src="/images/mobile_single_slide@2x.png"
+                  width="800px"
+                  height="520px"
+                />
+              </div>
+              <Grid
+                container
+                direction="row-reverse"
+                justify="center"
+                alignItems="stretch"
+              >
+                <Grid item xs={6}>
+                  <div className={phoneCoverClass}>
+                    <div className={clx(styles.hpc_phone__frame)}>
+                      <div className={styles.hpc_phone_slide}>
+                        <img
+                          src={sloganArray[0].phoneImage}
+                          width="100%"
+                          height="100%"
+                          alt="phone-pic"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+                <Grid item item xs={6}>
+                  <div className={tabletCoverClass}>
+                    <div className={clx(styles.hpc_tablet__frame)}>
+                      <div className={styles.hpc_phone_slide}>
+                        <img
+                          src={sloganArray[0].tabletImage}
+                          width="100%"
+                          height="100%"
+                          alt="tablet-pic"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+              </Grid>
+
+
+              </Grid>
+              
+            </div>
+          </Grid>
+
+
+
+
+          
+        </Grid>
+      </div>
     </>
   );
 };
