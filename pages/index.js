@@ -25,8 +25,6 @@ import {
   isTablet,
 } from "react-device-detect";
 import MobileHome from "./index.mobile";
-import { Translate } from "@material-ui/icons";
-import { types } from "sass";
 
 let cx = classNames.bind(styles);
 
