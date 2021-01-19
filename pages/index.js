@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import AppBar from "../components/home/app-bar";
+import AdvCard from "../components/home/adv-card";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Image from "next/image";
@@ -25,6 +26,7 @@ import {
 } from "react-device-detect";
 import MobileHome from "./index.mobile";
 import { Translate } from "@material-ui/icons";
+import { types } from "sass";
 
 let cx = classNames.bind(styles);
 
@@ -859,36 +861,96 @@ const Home = () => {
 
 
               <Grid item xs={12} id="6">
-                <div className={styles.grid6}></div>
+                <div className={styles.grid6}>
+                    
+                </div>
               </Grid>
+              
+              
+              
+              
               <Grid item xs={12} id="7">
-                <div className={styles.grid7}>
+                <div className={styles.grid7} style={{padding: "20px"}}>
                   <Grid
                     container
                     id="sec7"
-                    direction="row"
+                    direction="row-reverse"
                     justify="center"
                     alignItems="center"
+                    spacing={4}
                   >
                     <Grid item id="sec71" xs={12} md={4}>
-                      <div className={styles.sec71}></div>
+                      <div className={styles.sec71}>
+                          <AdvCard title="پشتیبانی آنلاین" icon="/images/support.png" desc="پشتیبانی حرفه‌ایی و 24 ساعته" info="هر زمان که شما بخواهید" />
+                      </div>
                     </Grid>
                     <Grid item id="sec72" xs={12} md={4}>
-                      <div className={styles.sec72}></div>
+                      <div className={styles.sec72}>
+                      <AdvCard title="وب سایت شخصی" icon="/images/website.png" desc="وب سایت فروشگاه خود را بسازید" info="لینک وب سایت خود را معرفی کنید" />
+                      </div>
                     </Grid>
                     <Grid item id="sec73" xs={12} md={4}>
-                      <div className={styles.sec73}></div>
+                      <div className={styles.sec73}>
+                      <AdvCard title="مدیریت روی موبایل" icon="/images/mobile.jpg" desc="به راحتی از روی موبایل فروشگاه خود را مدیریت کنید" info="همیشه و از هر جا"/>
+                      </div>
                     </Grid>
                   </Grid>
                 </div>
               </Grid>
               <Grid item xs={12} id="8">
-                <div className={styles.grid8}></div>
+                <div className={styles.grid8}>
+                    <div className={styles.sec81Text_Title}>
+                                    فروش آنلاین خود را بصورت رایگان آغاز نمایید !!
+                    </div>
+                    <div className={styles.sec81ButtonContainer}>
+                                    <Button
+                                      style={{
+                                        backgroundColor: "#fae053",
+                                        color: "#000",
+                                        width: "250px",
+                                        padding: "10px",
+                                        // marginRight: "250px",
+                                        marginTop: "35px",
+                                        fontSize: "1.2rem",
+                                      }}
+                                      type="button"
+                                      variant="contained"
+                                    >
+                                      رایگان فروشگاه بساز
+                                    </Button>
+                    </div>
+                </div>
               </Grid>
             </Grid>
           </div>
 
           <footer className={styles.footer}>
+                  <Grid
+                    container
+                    id="sec7"
+                    direction="row-reverse"
+                    justify="center"
+                    alignItems="center"
+                    spacing={4}
+                    >
+                      <Grid item xs={12} md={8} id="8">
+                          <div className={styles.footerContent}>
+                            <p> </p>
+                              <ul style={{color:"#fff"}}>
+                                aaaa
+                                <li>bbbb</li>
+                                <li></li>
+                                <li></li>
+                              </ul>
+                              </div>
+                        </Grid>
+                        <Grid item xs={12} md={4} id="8">
+                            <Image src="/images/logothinonly_white.png" width="50px" height="50px"/>
+                            <div styles={{fontSize:"30px", color:"#fff"}}>اینیساشاپ</div>
+                        </Grid>
+                  </Grid>
+                  
+            
             <a href="#" target="_blank" rel="noopener noreferrer">
               Powered by inisashop.com
             </a>
